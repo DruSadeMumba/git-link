@@ -1,0 +1,99 @@
+body  {
+  background-color: var(--accent-color);
+  color: var(--primary-text-color);
+}
+
+.wrapper  {
+  padding: 5px;
+  margin: 25px auto;
+  width: 95%;
+}
+
+.columns  {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  height: 91vh;
+}
+
+.column   {
+  flex: 1;
+  width: 50%;
+}
+
+#column1  {
+  background-color: var(--primary-dark);
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  text-align: center;
+}
+
+#column2  {
+  background-color: var(--primary-color);
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 30px;
+}
+
+h1, p  {
+  text-align: center;
+}
+
+p   {
+  font-size: 18px;
+}
+
+h5   {
+  margin-left: 50px;
+}
+
+#kitty   {
+  padding: 50px; 
+  max-width: 600px;
+  height: auto;
+}
+
+#gmail  {
+  height: 30px;
+  width: auto;
+  margin-left: 15px;
+  padding-bottom: 5px;
+}
+
+input  {
+  display: block;
+  width: 450px;
+  height: 40px;
+  margin-bottom: 5px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--primary-text-color);
+  background: transparent;
+}
+
+form {
+  font-size: 20px;
+  margin-left: 50px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+button  {
+  background-color: var(--primary-dark);
+  color: var(--primary-text-color);
+  width: 450px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+span  {
+  color: forestgreen;
+  font-style: italic;
+}
+
+a   {
+  text-decoration: none;
+}
