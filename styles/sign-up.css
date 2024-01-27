@@ -1,12 +1,46 @@
 body  {
   background-color: var(--accent-color);
   color: var(--primary-text-color);
+  font-family: 'Poppins', sans-serif;
 }
 
 .wrapper  {
   padding: 5px;
   margin: 25px auto;
   width: 95%;
+}
+
+.wrapper .input-box   {
+  position: relative;
+  width: 100%;
+}
+
+.input-box input  {
+  width: 400px;
+  height: 40px;
+  margin-bottom: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--primary-text-color);
+  background: transparent;
+}
+
+.input-box input::placeholder {
+  color: var(--primary-text-color-translucent);
+  font-weight: lighter;
+}
+
+.input-box i  {
+  position: absolute;
+}
+
+form {
+  margin-top: 10px;
+  font-size: 23px;
+  padding: 30px 40px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, .2);
+  background-color: transparent;
 }
 
 .columns  {
@@ -41,10 +75,16 @@ h1, p  {
 
 p   {
   font-size: 18px;
+  margin-top: 20px;
+  font-weight: lighter;
+}
+
+h3   {
+  font-weight: 400;
 }
 
 h5   {
-  margin-left: 50px;
+  font-weight: 300;
 }
 
 #kitty   {
@@ -60,31 +100,14 @@ h5   {
   padding-bottom: 5px;
 }
 
-input  {
-  display: block;
-  width: 450px;
-  height: 40px;
-  margin-bottom: 5px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid var(--primary-text-color);
-  background: transparent;
-}
-
-form {
-  font-size: 20px;
-  margin-left: 50px;
-  margin-bottom: 30px;
-  margin-top: 30px;
-}
-
 button  {
   background-color: var(--primary-dark);
   color: var(--primary-text-color);
   width: 450px;
   border: none;
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
+  margin-bottom: 20px;
   padding-top: 7px;
   padding-bottom: 7px;
 }
@@ -92,9 +115,14 @@ button  {
 span  {
   color: forestgreen;
   font-style: italic;
+  font-weight: normal;
 }
 
 a   {
   text-decoration: none;
 }
 
+h4   {
+  margin-top: 5px;
+  font-weight: 300;
+}

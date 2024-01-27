@@ -7,9 +7,10 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/sign-up.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/login.css">
     <link rel="stylesheet" href="../styles/colors.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="../images/icon.png">
     <script src="../js/jquery-3.6.0.js"></script>
     <title>Git-Link</title>
@@ -25,19 +26,21 @@
           <h1>WELCOME BACK!</h1>
           <form>
             <h3>Login to account</h3>
-            <div>
-              <label for="email_input">E-mail</label>
-              <input type="email" id="email_input" name="" placeholder="dru@example.com" required>
-            </div>            
-            <div>
-              <label for="password_input">Password</label>
-              <input type="password" id="password_input" name="" placeholder="lepass1234" required>
+            <h4>E-mail</h4> 
+            <div class="input-box">
+              <input type="email" placeholder="dru@example.com" required>
+              <i class='bx bxs-user bx-md' style='color:#0d1b2a'  ></i>
+            </div>    
+            <h4>Password</h4>      
+            <div class="input-box">
+              <input type="password" placeholder="lepass1234" required>
+              <i class='bx bxs-lock-alt bx-md' style='color:#0d1b2a'  ></i>
             </div>
             <button type="button">LOGIN</button>
+            <h5>or</h5>
+            <h5>Login with <a href=""><img src="../images/googles.png" id="gmail" alt="google"></a></h5>
+            <p>don't have an account? <a href="./sign-up.html"><span>SIGN-UP</span></a></p>  
           </form>
-          <h5>or</h5>
-          <h5>Login with <a href=""><img src="../images/googles.png" id="gmail" alt="google"></a></h5>
-          <p>don't have an account? <a href="./sign-up.html"><span>SIGN-UP</span></a></p>
         </div>
       </section>
     </div>
