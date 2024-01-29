@@ -109,10 +109,15 @@ button  {
   color: var(--secondary-dark);
 }
 
+div.scroll {
+  overflow-y: scroll; 
+  height:60vh;
+}
+
 .card {
   color: var(--primary-text-color);
   background-color: var(--primary-color);
-  width: 45%;
+  width: 97.2%;
   margin: 2.5%;
   padding: 10px;
   border-radius: 10px;
