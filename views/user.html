@@ -19,7 +19,20 @@
       <section class="columns">
         <div class="column" id="column-1">
           <div>
-            <img src="../images/menu.png" id="menu">
+            <img src="../images/menu.png" id="open-menu" alt="menu" onclick="openNav()">
+            <div class="side-bar" id="navigation">
+              <div class="card">
+                <div>
+                  <img src="../images/close.png" id="close-menu" alt="x" onclick="closeNav()">
+                </div>
+                <div>
+                  <h1>MENU</h1>
+                </div>
+              </div>
+              <a href="./profile.html"><h2 id="profile">Profile</h2></a>
+              <a href="./login.html"><h2 id="login">Login</h2></a>
+              <h2 id="share">Share</h2>
+            </div>
           </div>
           <div>
             <img src="../images/ppic.jpg" id="ppic">
@@ -68,7 +81,8 @@
       </section>
     </div>
     <div class="card-footer">
-      <h5><img src="../images/copyright-dark.png" alt="copyright"><a href="https://github.com/DruSadeMumba/git-link">2024 Git-Link</a></h5>
+      <h5><img src="../images/copyright-dark.png" alt="copyright"><a href="https://github.com/DruSadeMumba/git-link" id="github-link">2024 Git-Link</a></h5>
     </div>
+    <script src="../js/user.js"></script>
   </body>
 </html>
