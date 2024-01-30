@@ -28,9 +28,9 @@ def callback():
     """"Creating a callback route."""
     code = request.args.get('code')
     if not code:
-        return redirect('/'), 400 # Client-side error: Missing code parameter in the query string
+        return redirect('/'), 400  # Client-side error: Missing code parameter in the query string
     if not github_client_id or not github_client_secret:
-        return "Please set GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET environment variables", 500 # Server-side error: Missing client_id or client_secret environment variables
+        return "Please set GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET environment variables", 500  # Server-side error: Missing client_id or client_secret environment variables
     data = {
         'code': code,
         'client_id': github_client_id,
@@ -45,13 +45,14 @@ def callback():
         "scope": "repo,gist"
         }
     """
-    if response.status_code != 200: 
-        return 'An error occurred while retrieving your access token', 500 # Server-side error: Missing client_id or client_secret environment variables
+    if response.status_code != 200:
+        return 'An error occurred while retrieving your access token', 500  # Server-side error: Missing client_id or client_secret environment variables
     access_token = response.json().get('access_token')
     if not access_token:
-        return 'Access token not receieved from GithHub.', 500 # Server-side error: Missing client_id or client_secret environment variables
+        return 'Access token not receieved from GithHub.', 500  # Server-side error: Missing client_id or client_secret environment variables
     session['access_token'] = access_token
-    return redirect('/profile') ## need to be changed in case needed
+    return redirect('/profile')  ## need to be changed in case needed
+
 
 @app.route('/profile/', strict_slashes=False)
 def profile():
@@ -59,6 +60,7 @@ def profile():
         return "User not authenticated.", 401
     user_info = get_github_user_info()
     return user_info
+
 
 def get_github_user_info():
     access_token = session.get('access_token')
@@ -70,7 +72,6 @@ def get_github_user_info():
         return "Failed to fetch user information from GitHub.", 500
     data = response.json()
     return data
-
 
 
 def number_of_forks(user_name):
@@ -94,15 +95,12 @@ def number_of_repository(user_name):
         return "Access token not found in session.", 500
     headers = {'Authorization': f"token {access_token}"}
     # response for retriving the number of repository that the user has made
-    
-        # response = requests.get(f'https://api.github.com/users/{user_name}/repos', headers=headers)
+
+    # response = requests.get(f'https://api.github.com/users/{user_name}/repos', headers=headers)
     if response.status_code != 200:
         return "Failed to fetch user information from GitHub.", 500
     data = response.json()
     return data
-
-
-
 
 
 if __name__ == '__main__':
