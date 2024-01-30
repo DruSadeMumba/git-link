@@ -21,8 +21,55 @@ body   {
   width: 30%;
 }
 
-#menu {
+#open-menu {
   width: 35px;
+}
+
+.side-bar {
+  height: 100vh;
+  max-height: 100vh;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: var(--accent-color-translucent);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.side-bar #close-menu {
+  width: 40px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.side-bar .card {
+  background-color: var(--secondary-dark);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  height: 150px;
+}
+
+.side-bar h1, .side-bar h2 {
+  color: var(--primary-text-color);
+  text-align: center;
+  margin-top: 60px;
+  font-weight: 300;
+}
+
+a  {
+  text-decoration: none;
+}
+
+.side-bar h2:hover {
+  color: green;
+  font-weight: 400px;
+}
+
+#profile  {
+  visibility: hidden;
 }
 
 #ppic {
@@ -56,7 +103,8 @@ body   {
 }
 
 #location img {
-  width: 25px;
+  width: 30px;
+  padding-bottom: 10px;
 }
 
 button  {
@@ -109,12 +157,12 @@ button  {
   color: var(--secondary-dark);
 }
 
-div.scroll {
+div .scroll {
   overflow-y: scroll; 
   height:60vh;
 }
 
-.card {
+.row .card {
   color: var(--primary-text-color);
   background-color: var(--primary-color);
   width: 97.2%;
@@ -129,9 +177,15 @@ div.scroll {
   width: 100%;
 }
 
+#more-info img {
+  width: 20px;
+  margin-right: 5px;
+  padding-bottom: 7px;
+}
+
 #stars  {
   position: absolute;
-  right: 5px;
+  right: 50px;
 }
 
 #add-repo  {
@@ -139,10 +193,9 @@ div.scroll {
   text-align: end;
 }
 
-.card img {
-  width: 20px;
+#add-repo img {
+  width: 40px;
   margin-right: 5px;
-  padding-bottom: 7px;
 }
 
 .card-footer  {
@@ -151,7 +204,7 @@ div.scroll {
   background-color: var(--primary-text-color);
 }
 
-a {
+.card-footer #github-link {
   text-decoration: none;
   color: var(--accent-color);
 }
