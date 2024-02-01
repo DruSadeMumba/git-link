@@ -38,19 +38,19 @@
             <img src="../images/ppic.jpg" id="ppic">
           </div>
           <div>
-            <h1 id="username">{{ user_info.username }}</h1>
+            <h1 id="username">User Name</h1>
           </div>
           <div>
-            <h3 id="bio"> {{ user_info.bio }}</h3>
+            <h3 id="bio">This is my Bio</h3>
           </div>
           <div>
-            <h5 id="repos">{{ user_info.total_repos}} repos</h5>
+            <h5 id="repos">70 repos</h5>
           </div>
           <div id="follower">
-            <h5><img src="../images/users.png"> <span id="followers"> {{ user_info.followers }} followers </span><span id="following"> {{ user_info.following }} following</span> </h5>
+            <h5><img src="../images/users.png"> <span id="followers"> 10 followers </span><span id="following"> 20 following</span> </h5>
           </div>
           <div>
-            <h5 id="location"><img src="../images/location-pin.png"> {{ user_info.location }}</h5>
+            <h5 id="location"><img src="../images/location-pin.png">Nairobi</h5>
           </div>
           <button class="button">VIEW GITHUB PROFILE</button>
         </div>
@@ -61,15 +61,14 @@
           </div>
           <h1>REPOSITORIES</h1>
           <div class="scroll">
-            {% for repo in repo_info %}
             <div class="row">
               <div class="col-md-6">
                 <div class="card">
-                  <h5 id="repo-name"> {{ repo.name }}</h5>
-                  <p id="description"> {{ repo.description }}</p>
+                  <h5 id="repo-name">Repository name</h5>
+                  <p id="description">the description</p>
                   <p id="more-info">
-                    <span id="forks"> <img src="../images/code-fork.png" alt="fork">{{ repo.forks_count }} Forks</span> 
-                    <span id="stars"><img src="../images/star.png" alt="star">{{ repo.stargazers_count }} Stars</span>
+                    <span id="forks"> <img src="../images/code-fork.png" alt="fork">15 Forks</span> 
+                    <span id="stars"><img src="../images/star.png" alt="star">3 Stars</span>
                   </p>
                   <div id="add-repo">
                     <img src="../images/add.png" alt="add">
@@ -77,7 +76,6 @@
                 </div>
               </div>
             </div>
-            {% endfor %}
           </div>
         </div>
       </section>

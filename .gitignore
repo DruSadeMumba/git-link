@@ -3,3 +3,5 @@
 node_modules/
 dist/
 .env
+git-link-firebase-adminsdk.json
+sdk.js

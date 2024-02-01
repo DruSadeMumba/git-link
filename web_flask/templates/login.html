@@ -8,41 +8,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles/login.css">
-    <link rel="stylesheet" href="../styles/colors.css">
+    <link rel="stylesheet" href="../static/styles/login.css">
+    <link rel="stylesheet" href="../static/styles/colors.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" href="../images/icon.png">
-    <script src="../js/jquery-3.6.0.js"></script>
+    <link rel="icon" href="../static/images/icon.png">
+    <script src="../static/scripts/jquery-3.6.0.js"></script>
     <title>Git-Link</title>
   </head>
   <body>
     <div class="wrapper">
       <section class="columns">
         <div class="column" id="column1">
-          <img src="../images/kitty.png" id="kitty">
+          <img src="../static/images/kitty.png" id="kitty">
           <h1>Git-Link</h1>
         </div>
         <div class="column" id="column2">
           <h1 id="main">WELCOME BACK!</h1>
-          <form>
+          <form action="http://127.0.0.1:5000/login" method="POST">
             <h3>Login to account</h3>
             <h4>E-mail</h4> 
             <div class="input-box">
-              <input type="email" placeholder="dru@example.com" required>
-              <i class='bx bxs-user bx-md' style='color:#0d1b2a'  ></i>
+              <input name="email" type="email" placeholder="dru@example.com" required>
+              <i class='bx bxs-user bx-md' style='color: var(--primary-dark)'  ></i>
             </div>    
-            <h4>Password</h4>      
+            <h4>Password</h4>
             <div class="input-box">
-              <input type="password" placeholder="lepass1234" required>
-              <i class='bx bxs-lock-alt bx-md' style='color:#0d1b2a'  ></i>
+              <input name="password" type="password" placeholder="lepass1234" required>
+              <i class='bx bxs-lock-alt bx-md' style='color: var(--primary-dark)'  ></i>
             </div>
-            <button type="button">LOGIN</button>
+            <button type="submit">LOGIN</button>
             <h5>or</h5>
-            <h5>Sign-up with <a href="#"><img src="../images/googles.png" id="gmail" alt="google"></a><a href="#"><img src="../images/github-logo.png" id="gitlogo" alt="github"></a></h5>
-            <p>don't have an account? <a href="./sign-up.html"><span>SIGN-UP</span></a></p>  
+            <h5>Sign-up with <a href="#"><img src="../static/images/googles.png" id="gmail" alt="google"></a><a href="#"><img src="../static/images/github-logo.png" id="gitlogo" alt="github"></a></h5>
+            <p>don't have an account? <a href="http://127.0.0.1:5000/signup"><span>SIGN-UP</span></a></p>
           </form>
         </div>
       </section>
     </div>
+    <script src="../static/scripts/sdk.js"></script>
   </body>
 </html>
