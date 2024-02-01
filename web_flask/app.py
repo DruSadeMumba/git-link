@@ -51,16 +51,21 @@ def callback():
     if not access_token:
         return 'Access token not receieved from GithHub.', 500  # Server-side error: Missing client_id or client_secret environment variables
     session['access_token'] = access_token
-    return redirect('/profile')  ## need to be changed in case needed
+    return redirect('/user')  ## need to be changed in case needed
 
 
-@app.route('/profile/', strict_slashes=False)
-def profile():
+@app.route('/user/', strict_slashes=False)
+def user():
     if 'access_token' not in session:
         return "User not authenticated.", 401
     user_info = get_github_user_info()
     repo_info = get_user_repos()
-    return render_template('profile.html', user_info=user_info, repo_info=repo_info)
+    return render_template('user.html', user_info=user_info, repo_info=repo_info)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 
 def get_github_user_info():
@@ -74,6 +79,7 @@ def get_github_user_info():
     data = response.json()
     user_info = {
         'username': data.get('login'),
+        'bio': data.get('bio'),
         'total_repos': data.get('total_repos'),
         'followers': data.get('followers'),
         'following': data.get('following'),
