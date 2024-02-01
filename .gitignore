@@ -5,3 +5,4 @@ dist/
 .env
 git-link-firebase-adminsdk.json
 sdk.js
+/web_flask/config.py

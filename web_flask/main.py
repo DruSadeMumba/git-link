@@ -1,24 +1,40 @@
 #!/usr/bin/python3
-from flask import Flask, redirect, render_template, request, url_for
+
+from flask import Flask, redirect, render_template, request, session, url_for
 import pyrebase
+from web_flask.config import Config
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
-firebaseConfig = {'apiKey': "AIzaSyAk2bynVPfj-5rW4y0K6256LdSE62cXDB0",
-                  'authDomain': "git-link-d9cc9.firebaseapp.com",
-                  'databaseURL': "https://trialauth-7eea1.firebaseio.com",
-                  'projectId': "git-link-d9cc9",
-                  'storageBucket': "git-link-d9cc9.appspot.com",
-                  'messagingSenderId': "911947476553",
-                  'appId': "1:911947476553:web:e8dbbbe137c97b524fd998",
-                  'measurementId': "G-27ZGX5VGJS"
-                  }
+app.config.from_object(Config)
+app.secret_key = app.config['SECRET_KEY']
+firebaseConfig = app.config['FIREBASE_CONFIG']
 
 firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 firebase_user = {"is_logged_in": False, "username": "", "email": "", "uid": ""}
 db = firebase.database()
+
+
+def create_auth_state_listener():
+    @auth.on_auth_state_changed
+    def handle_auth_state_changed(auth, user):
+        global firebase_user
+        if user:
+            firebase_user["is_logged_in"] = True
+            firebase_user["email"] = user.email
+            firebase_user["uid"] = user.local_id
+            data = db.child("users").get()
+            firebase_user["username"] = data.val()[firebase_user["uid"]]["username"]
+        else:
+            firebase_user["is_logged_in"] = False
+            firebase_user["email"] = ""
+            firebase_user["uid"] = ""
+            firebase_user["username"] = ""
+
+
+create_auth_state_listener()
 
 
 @app.route("/")
@@ -41,14 +57,6 @@ def fetch_user():
     return render_template("user.html")
 
 
-@app.route("/profile")
-def profile():
-    if firebase_user["is_logged_in"]:
-        return render_template("profile.html", email=firebase_user["email"], username=firebase_user["username"])
-    else:
-        return redirect(url_for('login'))
-
-
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
@@ -67,14 +75,15 @@ def signup():
             data = {"username": username, "email": email}
             db.child("users").child(firebase_user["uid"]).set(data)
 
-            return redirect(url_for('profile'))
+            return redirect(url_for('profile', uid=firebase_user["uid"]))
+
         except Exception as e:
             print(f"Error creating user: {str(e)}")
             return redirect(url_for('signup'))
 
     else:
         if firebase_user["is_logged_in"]:
-            return redirect(url_for('profile'))
+            return redirect(url_for('profile', uid=firebase_user["uid"]))
         else:
             return redirect(url_for('signup'))
 
@@ -91,17 +100,37 @@ def login():
             firebase_user["is_logged_in"] = True
             firebase_user["email"] = user["email"]
             firebase_user["uid"] = user["localId"]
+
             data = db.child("users").get()
             firebase_user["username"] = data.val()[firebase_user["uid"]]["username"]
-            return redirect(url_for('profile'))
-        except auth.AuthError as e:
+
+            return redirect(url_for('profile', uid=firebase_user["uid"]))
+
+        except Exception as e:
             print(f"Error logging in user: {str(e)}")
             return redirect(url_for('login'))
     else:
-        if firebase_user["is_logged_in"]:
-            return redirect(url_for('profile'))
+        if session.get("is_logged_in"):
+            return redirect(url_for('profile', uid=session["uid"]))
         else:
             return redirect(url_for('login'))
+
+
+@app.route("/profile/<uid>")
+def profile(uid):
+    if firebase_user["is_logged_in"]:
+        return render_template("profile.html", uid=uid, email=firebase_user["email"],
+                               username=firebase_user["username"])
+    else:
+        return redirect(url_for('login'))
+
+
+@app.route("/profile/")
+def my_profile():
+    if firebase_user["is_logged_in"]:
+        return redirect(url_for('profile', uid=firebase_user["uid"]))
+    else:
+        return redirect(url_for('login'))
 
 
 if __name__ == '__main__':
