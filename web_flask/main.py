@@ -44,7 +44,7 @@ def fetch_user():
 @app.route("/profile")
 def profile():
     if firebase_user["is_logged_in"]:
-        return render_template("profile.html", email=firebase_user["email"], name=firebase_user["username"])
+        return render_template("profile.html", email=firebase_user["email"], username=firebase_user["username"])
     else:
         return redirect(url_for('login'))
 
@@ -92,7 +92,7 @@ def login():
             firebase_user["email"] = user["email"]
             firebase_user["uid"] = user["localId"]
             data = db.child("users").get()
-            firebase_user["name"] = data.val()[firebase_user["uid"]]["name"]
+            firebase_user["username"] = data.val()[firebase_user["uid"]]["username"]
             return redirect(url_for('profile'))
         except auth.AuthError as e:
             print(f"Error logging in user: {str(e)}")
