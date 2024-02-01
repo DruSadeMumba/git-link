@@ -59,7 +59,8 @@ def profile():
     if 'access_token' not in session:
         return "User not authenticated.", 401
     user_info = get_github_user_info()
-    return user_info
+    repo_info = get_user_repos()
+    return render_template('profile.html', user_info=user_info, repo_info=repo_info)
 
 
 def get_github_user_info():
@@ -71,36 +72,39 @@ def get_github_user_info():
     if response.status_code != 200:
         return "Failed to fetch user information from GitHub.", 500
     data = response.json()
-    return data
+    user_info = {
+        'username': data.get('login'),
+        'total_repos': data.get('total_repos'),
+        'followers': data.get('followers'),
+        'following': data.get('following'),
+        'location': data.get('location')
+    }
+    return user_info
 
 
-def number_of_forks(user_name):
-    """Function to retrive the number of forks."""
+def get_user_repos():
+    """Function to retrieve the user's repositories."""
     access_token = session.get('access_token')
     if not access_token:
         return "Access token not found in session.", 500
     headers = {'Authorization': f"token {access_token}"}
-    # response for retriving the number of forks the user has made
-    response = requests.get(f'https://api.github.com/users/{user_name}/repos', headers=headers)
-    if response.status_code != 200:
-        return "Failed to fetch user information from GitHub.", 500
-    data = response.json()
-    return data
+    repos_url = 'https://api.github.com/user/repos'
+    repo_info = []
+    while repos_url:
+        response = requests.get(repos_url, headers=headers)
+        if response.status_code != 200:
+            return "Failed to fetch user information from GitHub.", 500
+        data = response.json()
+        for repo in data:
+            repo_info.append({
+                'name': repo['name'],
+                'description': repo['description'],
+                'forks_count': repo['forks_count'],
+                'stargazers_count': repo['stargazers_count']
+            })
+        repos_url = response.links['next']['url'] if 'next' in response.links else None
+    return repo_info
 
-
-def number_of_repository(user_name):
-    """Function to retrive the number of respository."""
-    access_token = session.get('access_token')
-    if not access_token:
-        return "Access token not found in session.", 500
-    headers = {'Authorization': f"token {access_token}"}
-    # response for retriving the number of repository that the user has made
-
-    # response = requests.get(f'https://api.github.com/users/{user_name}/repos', headers=headers)
-    if response.status_code != 200:
-        return "Failed to fetch user information from GitHub.", 500
-    data = response.json()
-    return data
 
 
 if __name__ == '__main__':
