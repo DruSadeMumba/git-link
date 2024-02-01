@@ -17,6 +17,26 @@ firebase_user = {"is_logged_in": False, "username": "", "email": "", "uid": ""}
 db = firebase.database()
 
 
+def create_auth_state_listener():
+    @auth.on_auth_state_changed
+    def handle_auth_state_changed(auth, user):
+        global firebase_user
+        if user:
+            firebase_user["is_logged_in"] = True
+            firebase_user["email"] = user.email
+            firebase_user["uid"] = user.local_id
+            data = db.child("users").get()
+            firebase_user["username"] = data.val()[firebase_user["uid"]]["username"]
+        else:
+            firebase_user["is_logged_in"] = False
+            firebase_user["email"] = ""
+            firebase_user["uid"] = ""
+            firebase_user["username"] = ""
+
+
+create_auth_state_listener()
+
+
 @app.route("/")
 def splash():
     return render_template("index.html")
