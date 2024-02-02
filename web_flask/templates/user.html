@@ -16,49 +16,53 @@
   </head>
   <body>
     <div class="wrapper">
-      <section class="columns">
-        <div class="column" id="column-1">
-          <div>
-            <img src="../static/images/menu.png" id="open-menu" alt="menu" onclick="openNav()">
-            <div class="side-bar" id="navigation">
-              <div class="card">
-                <div>
-                  <img src="../static/images/close.png" id="close-menu" alt="x" onclick="closeNav()">
-                </div>
-                <div>
-                  <h1>MENU</h1>
-                </div>
-              </div>
-              <a href="http://127.0.0.1:5000/profile"><h2 id="profile">Profile</h2></a>
-              <a href="http://127.0.0.1:5000/login"><h2 id="login">Login</h2></a>
-              <h2 id="share">Share</h2>
+      <div>
+        <div class="search">
+          <img src="../static/images/menu.png" id="open-menu" alt="menu" onclick="openNav()">
+          <input type="text" placeholder="search github user">
+          <img src="../static/images/search.png" id="search">  
+        </div>
+        <div class="side-bar" id="navigation">
+          <div class="card">
+            <div>
+              <img src="../static/images/close.png" id="close-menu" alt="x" onclick="closeNav()">
+            </div>
+            <div>
+              <h1>MENU</h1>
             </div>
           </div>
-          <div>
-            <img src="../static/images/ppic.jpg" id="ppic">
-          </div>
-          <div>
-            <h1 id="username">{{ user_info.username }}</h1>
-          </div>
-          <div>
-            <h3 id="bio"> {{ user_info.bio }}</h3>
-          </div>
-          <div>
-            <h5 id="repos">{{ user_info.total_repos }} repos</h5>
+          <a href="http://127.0.0.1:5000/profile"><h2 id="profile">Profile</h2></a>
+          <a href="http://127.0.0.1:5000/login"><h2 id="login">Login</h2></a>
+          <h2 id="share">Share</h2>
+        </div>
+      </div>
+      <section class="columns">
+        <div class="column" id="column-1">
+          <div class="user-info">
+            <div>
+              <img src="../static/images/ppic.jpg" id="ppic">
+            </div>
+            <div class="more-user-info">
+              <div>
+                <h1 id="username">{{ user_info.username }}</h1>
+              </div>
+              <div>
+                <h3 id="bio"> {{ user_info.bio }}</h3>
+              </div>
+              <div>
+                <h5 id="repos">{{ user_info.total_repos }} repos</h5>
+              </div>
+              <div>
+                <h5 id="location"><img src="../static/images/location-pin.png"> {{ user_info.location }}</h5>
+              </div>
+            </div>
           </div>
           <div id="follower">
             <h5><img src="../static/images/users.png"> <span id="followers"> {{ user_info.followers }} followers </span><span id="following"> {{ user_info.following}} following</span> </h5>
           </div>
-          <div>
-            <h5 id="location"><img src="../static/images/location-pin.png"> {{ user_info.location }}</h5>
-          </div>
           <button class="button">VIEW GITHUB PROFILE</button>
         </div>
         <div class="column" id="column-2">
-          <div class="search">
-            <input type="text" placeholder="search github user">
-            <img src="../static/images/search.png" id="search">
-          </div>
           <h1>REPOSITORIES</h1>
           <div class="scroll">
             {% for repo in repo_info %}

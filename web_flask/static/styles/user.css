@@ -6,7 +6,7 @@ body   {
 
 .wrapper  {
   padding: 5px;
-  margin: 15px auto;
+  margin: 15px;
   width: 95%;
 }
 
@@ -14,12 +14,435 @@ body   {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  height: 90vh;
 }
 
-#column-1 {
-  width: 30%;
+
+@media only screen and (max-width: 750px) {
+  .search {
+    width: 100%;
+  }
+
+  .search input {
+    margin-left: 5%;
+    height: 35px;
+    border: none;
+    text-align: center;
+    color: var(--primary-text-color);
+    background-color: var(--secondary-color);
+    border-radius: 15px;
+    width: 70%;
+  }
+  
+  .search ::placeholder {
+    color: var(--primary-text-color-translucent);
+    font-size: 15px;
+    font-weight: 300;
+  }
+  
+  .search #search {
+    width: 35px;
+  }
+
+  #column-1 {
+    width: 100%;
+  }
+    
+  #ppic {
+    width: 150px;
+    border-radius: 50%;
+  }
+
+  .user-info {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .more-user-info  {
+    position: absolute;
+    height: 150px;
+    left: 200px;
+    top: 0px;
+  }
+
+  #username {
+    font-size: 20px;
+  }
+
+  #bio  {
+    font-size: 17px;
+    font-weight: 400;
+  }
+
+  #repos  {
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  #location {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  
+  #location img {
+    width: 25px;
+    padding-bottom: 5px;
+  }
+  
+  #follower img {
+    width: 25px;
+    margin-right: 5px;
+    padding-bottom: 5px;
+  }
+  
+  #followers, #following {
+    font-size: 15px;
+    font-weight: 200;
+    margin-top: 20px;
+  }
+  
+  button  {
+    border: none;
+    background-color: var(--primary-dark);
+    color: var(--primary-text-color);
+    width: 100%;
+    border-radius: 7px;
+    padding: 10px 15px;
+    font-size: smaller;
+    font-weight: 300;
+  }
+
+  #column-2 {
+    width: 100%;
+  }
+  
+  #column-2 h1  {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 25px;
+    color: var(--secondary-dark);
+  }
+  
+  #repos  {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  #repos .card {
+    color: var(--primary-text-color);
+    background-color: var(--primary-color);
+    width: 97.2%;
+    margin: 2.5%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px var(--primary-dark) solid;
+  }
+
+  #repo-name  {
+    font-size: 18px;
+  }
+
+  #description  {
+    font-size: 15px;
+  }
+  
+  #more-info  {
+    position: relative;
+    width: 100%;
+  }
+  
+  #more-info img {
+    width: 20px;
+    margin-right: 5px;
+    padding-bottom: 7px;
+  }
+  
+  #stars  {
+    position: absolute;
+    right: 20px;
+  }
+  
+  #add-repo  {
+    width: 100%;
+    text-align: end;
+  }
+  
+  #add-repo img {
+    width: 20px;
+    margin-right: 5px;
+  }
 }
+
+@media only screen and (min-width: 751px) and (max-width: 900px) {
+  .search {
+    width: 100%;
+  }
+
+  .columns  {
+    height: 90vh;
+  }
+  
+  .search input {
+    margin-left: 5%;
+    height: 50px;
+    border: none;
+    text-align: center;
+    color: var(--primary-text-color);
+    background-color: var(--secondary-color);
+    border-radius: 15px;
+    width: 80%;
+  }
+  
+  .search ::placeholder {
+    color: var(--primary-text-color-translucent);
+    font-size: 20px;
+    font-weight: 300;
+  }
+  
+  .search #search {
+    width: 50px;
+  }
+  
+  #column-1 {
+    width: 30%;
+  }
+  
+  #ppic {
+    width: 250px;
+    margin-top: 20px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  #bio  {
+    font-weight: 400;
+  }
+    
+  #follower img {
+    width: 30px;
+    margin-right: 5px;
+    padding-bottom: 15px;
+  }
+  
+  #followers, #following {
+    font-size: 18px;
+    font-weight: 200;
+  }
+  
+  #location {
+    font-weight: 400;
+  }
+  
+  #location img {
+    width: 30px;
+    padding-bottom: 10px;
+  }
+  
+  button  {
+    margin-top: 60px;
+    border: none;
+    background-color: var(--primary-dark);
+    color: var(--primary-text-color);
+    width: 300px;
+    border-radius: 7px;
+    padding: 10px 15px;
+    font-size: smaller;
+    font-weight: 300;
+  }
+
+  #column-2 {
+    width: 67.5%;
+    margin-left: 2.5%;
+  }
+  
+  #column-2 h1  {
+    margin: 35px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 36px;
+    color: var(--secondary-dark);
+  }
+    
+  #repos  {
+    font-weight: 300;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  #repos .card {
+    color: var(--primary-text-color);
+    background-color: var(--primary-color);
+    width: 97.2%;
+    margin: 2.5%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px var(--primary-dark) solid;
+  }
+  
+  #more-info  {
+    position: relative;
+    width: 100%;
+  }
+  
+  #more-info img {
+    width: 20px;
+    margin-right: 5px;
+    padding-bottom: 7px;
+  }
+  
+  #stars  {
+    position: absolute;
+    right: 50px;
+  }
+  
+  #add-repo  {
+    width: 100%;
+    text-align: end;
+  }
+  
+  #add-repo img {
+    width: 40px;
+    margin-right: 5px;
+  }
+}
+
+@media only screen and (min-width: 901px) {
+  .search {
+    width: 100%;
+  }
+
+  .columns  {
+    height: 90vh;
+  }
+  
+  .search input {
+    margin-left: 5%;
+    height: 50px;
+    border: none;
+    text-align: center;
+    color: var(--primary-text-color);
+    background-color: var(--secondary-color);
+    border-radius: 15px;
+    width: 80%;
+  }
+  
+  .search ::placeholder {
+    color: var(--primary-text-color-translucent);
+    font-size: 20px;
+    font-weight: 300;
+  }
+  
+  .search #search {
+    width: 50px;
+  }
+  
+  #column-1 {
+    width: 30%;
+  }
+  
+  #ppic {
+    width: 250px;
+    margin-top: 20px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  #bio  {
+    font-weight: 400;
+  }
+  
+  #repos  {
+    font-weight: 300;
+  }
+  
+  #follower img {
+    width: 30px;
+    margin-right: 5px;
+    padding-bottom: 15px;
+  }
+  
+  #followers, #following {
+    font-size: 18px;
+    font-weight: 200;
+  }
+  
+  #location {
+    font-weight: 400;
+  }
+  
+  #location img {
+    width: 30px;
+    padding-bottom: 10px;
+  }
+  
+  button  {
+    margin-top: 60px;
+    border: none;
+    background-color: var(--primary-dark);
+    color: var(--primary-text-color);
+    width: 300px;
+    border-radius: 7px;
+    padding: 10px 15px;
+    font-size: smaller;
+    font-weight: 300;
+  }
+
+  #column-2 {
+    width: 67.5%;
+    margin-left: 2.5%;
+  }
+  
+  #column-2 h1  {
+    margin: 35px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 36px;
+    color: var(--secondary-dark);
+  }
+    
+  #repos  {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  #repos .card {
+    color: var(--primary-text-color);
+    background-color: var(--primary-color);
+    width: 97.2%;
+    margin: 2.5%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px var(--primary-dark) solid;
+  }
+  
+  #more-info  {
+    position: relative;
+    width: 100%;
+  }
+  
+  #more-info img {
+    width: 20px;
+    margin-right: 5px;
+    padding-bottom: 7px;
+  }
+  
+  #stars  {
+    position: absolute;
+    right: 50px;
+  }
+  
+  #add-repo  {
+    width: 100%;
+    text-align: end;
+  }
+  
+  #add-repo img {
+    width: 40px;
+    margin-right: 5px;
+  }
+}
+
 
 #open-menu {
   width: 35px;
@@ -68,135 +491,9 @@ a  {
   font-weight: 400px;
 }
 
-#ppic {
-  width: 250px;
-  margin-top: 20px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
-
-#bio  {
-  font-weight: 400;
-}
-
-#repos  {
-  font-weight: 300;
-}
-
-#follower img {
-  width: 30px;
-  margin-right: 5px;
-  padding-bottom: 15px;
-}
-
-#followers, #following {
-  font-size: 18px;
-  font-weight: 200;
-}
-
-#location {
-  font-weight: 400;
-}
-
-#location img {
-  width: 30px;
-  padding-bottom: 10px;
-}
-
-button  {
-  margin-top: 60px;
-  border: none;
-  background-color: var(--primary-dark);
-  color: var(--primary-text-color);
-  width: 300px;
-  border-radius: 7px;
-  padding: 10px 15px;
-  font-size: smaller;
-  font-weight: 300;
-}
-
-#column-2 {
-  width: 67.5%;
-  margin-left: 2.5%;
-}
-
-#column-2 .search {
-  width: 100%;
-}
-
-#column-2 input {
-  margin: 2.5%;
-  height: 50px;
-  border: none;
-  text-align: center;
-  color: var(--primary-text-color);
-  background-color: var(--secondary-color);
-  border-radius: 15px;
-  width: 80%;
-}
-
-#column-2 ::placeholder {
-  color: var(--primary-text-color-translucent);
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.search #search {
-  width: 50px;
-}
-
-#column-2 h1  {
-  margin: 35px;
-  text-align: center;
-  font-weight: 400;
-  font-size: 36px;
-  color: var(--secondary-dark);
-}
-
 div .scroll {
   overflow-y: scroll; 
   height:60vh;
-}
-
-#repos  {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-#repos .card {
-  color: var(--primary-text-color);
-  background-color: var(--primary-color);
-  width: 97.2%;
-  margin: 2.5%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px var(--primary-dark) solid;
-}
-
-#more-info  {
-  position: relative;
-  width: 100%;
-}
-
-#more-info img {
-  width: 20px;
-  margin-right: 5px;
-  padding-bottom: 7px;
-}
-
-#stars  {
-  position: absolute;
-  right: 50px;
-}
-
-#add-repo  {
-  width: 100%;
-  text-align: end;
-}
-
-#add-repo img {
-  width: 40px;
-  margin-right: 5px;
 }
 
 .card-footer  {
