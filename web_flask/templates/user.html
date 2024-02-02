@@ -62,18 +62,16 @@
           <h1>REPOSITORIES</h1>
           <div class="scroll">
             {% for repo in repo_info %}
-            <div class="row">
-              <div class="col-md-6">
-                <div class="card">
-                  <h5 id="repo-name">{{ repo.name }}</h5>
-                  <p id="description">{{ repo.description }}</p>
-                  <p id="more-info">
-                    <span id="forks"> <img src="../static/images/code-fork.png" alt="fork">{{ repo.forks_count }} Forks</span>
-                    <span id="stars"><img src="../static/images/star.png" alt="star">{{ repo.stargazers_count }} Stars</span>
-                  </p>
-                  <div id="add-repo">
-                    <img src="../static/images/add.png" alt="add">
-                  </div>
+            <div id="repos">
+              <div class="card">
+                <h5 id="repo-name">{{ repo.name }}</h5>
+                <p id="description">{{ repo.description }}</p>
+                <p id="more-info">
+                  <span id="forks"> <img src="../static/images/code-fork.png" alt="fork">{{ repo.forks_count }} Forks</span>
+                  <span id="stars"><img src="../static/images/star.png" alt="star">{{ repo.stargazers_count }} Stars</span>
+                </p>
+                <div id="add-repo">
+                  <img src="../static/images/add.png" alt="add">
                 </div>
               </div>
             </div>

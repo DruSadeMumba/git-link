@@ -158,7 +158,12 @@ div .scroll {
   height:60vh;
 }
 
-.row .card {
+#repos  {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#repos .card {
   color: var(--primary-text-color);
   background-color: var(--primary-color);
   width: 97.2%;
