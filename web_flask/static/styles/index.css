@@ -23,3 +23,53 @@ h3  {
   font-style: italic;
   font-weight: 100;
 }
+
+img {
+  opacity: 0;
+  animation: fadeInAnimation 2s ease-in-out forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1; 
+  }
+}
+
+h1, h3 {
+  opacity: 0; 
+  position: relative;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%); 
+    opacity: 0; 
+  }
+  to {
+    transform: translateX(0); 
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%); 
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+h1 {
+  animation: slideInLeft 2s ease-in-out forwards; 
+}
+
+h3 {
+  animation: slideInRight 2s ease-in-out forwards;
+}
+
