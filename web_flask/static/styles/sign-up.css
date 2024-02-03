@@ -4,138 +4,271 @@ body  {
   font-family: 'Poppins', sans-serif;
 }
 
-@media only screen and (max-width: 750px) {
-
-}
-
 .wrapper  {
   height: 100vh;
   padding: 5px;
   margin: 25px auto;
-  width: 95%;
+  width: 90%;
 }
 
 .columns  {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  height: 91vh;
 }
 
-.column   {
-  flex: 1;
-  width: 50%;
+
+@media only screen and (min-width: 500px) and (max-width: 800px) {
+  .column   {
+    width: 100%;
+  }
+  
+  #column1  {
+    text-align: center;
+    background-color: var(--primary-color);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    height: 120px;
+  }
+
+  #column1 h1 {
+    visibility: hidden;
+  }
+
+  #kitty   {
+    margin-top: 20px;
+    max-width: 90px;
+    height: auto;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--primary-dark);
+  }
+
+  
+  #column2  {
+    background-color: var(--primary-color);
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  form {
+    margin-top: 10px;
+    font-size: 18px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, .2);
+  }
+  
+  .wrapper .input-box   {
+    position: relative;
+    width: 100%;
+  }
+  
+  .input-box input  {
+    width: 90%;
+    height: 20px;
+    margin-bottom: 10px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--primary-text-color);
+    background: transparent;
+  }
+  
+  .input-box input::placeholder {
+    color: var(--primary-text-color-translucent);
+    font-weight: lighter;
+  }
+  
+  .input-box i  {
+    position: absolute;
+  }
+  
+  h1  {
+    text-align: center;
+    font-weight: 400;
+    font-size: 36px;
+  }
+  
+  p   {
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: lighter;
+    text-align: center;
+  }
+  
+  h3   {
+    font-weight: 300;
+  }
+  
+  h5   {
+    font-weight: 200;
+  }
+    
+  #gmail  {
+    height: 30px;
+    width: auto;
+    margin-left: 15px;
+    padding-bottom: 5px;
+  }
+  
+  button  {
+    background-color: var(--primary-dark);
+    color: var(--primary-text-color);
+    width: 85%;
+    border: none;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-weight: 200;
+  }
+  
+  span  {
+    color: forestgreen;
+    font-style: italic;
+    font-weight: normal;
+  }
+  
+  a   {
+    text-decoration: none;
+  }
+  
+  h4   {
+    margin-top: 5px;
+    font-weight: 300;
+    font-size: 20px;
+  }
+  
+  #gitlogo  {
+    margin-left: 25px;
+    width: 40px;
+    height: 45px;
+    padding-bottom: 5px;
+  }
+  
 }
 
-#column1  {
-  background-color: var(--primary-dark);
-  border-bottom-left-radius: 15px;
-  border-top-left-radius: 15px;
-  text-align: center;
-}
-
-#column2  {
-  background-color: var(--primary-color);
-  border-bottom-right-radius: 15px;
-  border-top-right-radius: 15px;
-  padding: 30px;
-}
-
-form {
-  margin-top: 10px;
-  font-size: 18px;
-  padding: 30px 40px;
-  border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, .2);
-  background-color: transparent;
-}
-
-.wrapper .input-box   {
-  position: relative;
-  width: 100%;
-}
-
-.input-box input  {
-  width: 400px;
-  height: 20px;
-  margin-bottom: 10px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid var(--primary-text-color);
-  background: transparent;
-}
-
-.input-box input::placeholder {
-  color: var(--primary-text-color-translucent);
-  font-weight: lighter;
-}
-
-.input-box i  {
-  position: absolute;
-}
-
-h1, p  {
-  text-align: center;
-}
-
-p   {
-  font-size: 18px;
-  margin-top: 20px;
-  font-weight: lighter;
-}
-
-h3   {
-  font-weight: 400;
-}
-
-h5   {
-  font-weight: 300;
-}
-
-#kitty   {
-  padding: 50px; 
-  max-width: 600px;
-  height: auto;
-}
-
-#gmail  {
-  height: 30px;
-  width: auto;
-  margin-left: 15px;
-  padding-bottom: 5px;
-}
-
-button  {
-  background-color: var(--primary-dark);
-  color: var(--primary-text-color);
-  width: 450px;
-  border: none;
-  border-radius: 10px;
-  margin-top: 15px;
-  margin-bottom: 20px;
-  padding-top: 7px;
-  padding-bottom: 7px;
-}
-
-span  {
-  color: forestgreen;
-  font-style: italic;
-  font-weight: normal;
-}
-
-a   {
-  text-decoration: none;
-}
-
-h4   {
-  margin-top: 5px;
-  font-weight: 300;
-  font-size: 20px;
-}
-
-#gitlogo  {
-  margin-left: 25px;
-  width: 40px;
-  height: 45px;
-  padding-bottom: 5px;
+@media only screen and (min-width: 801px) {
+  .column   {
+    flex: 1;
+    width: 50%;
+  }
+  
+  #column1  {
+    background-color: var(--primary-dark);
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    text-align: center;
+  }
+  
+  #column2  {
+    background-color: var(--primary-color);
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 30px;
+  }
+  
+  form {
+    margin-top: 10px;
+    font-size: 18px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, .2);
+    background-color: transparent;
+  }
+  
+  .wrapper .input-box   {
+    position: relative;
+    width: 100%;
+  }
+  
+  .input-box input  {
+    width: 80%;
+    height: 20px;
+    margin-bottom: 10px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--primary-text-color);
+    background: transparent;
+  }
+  
+  .input-box input::placeholder {
+    color: var(--primary-text-color-translucent);
+    font-weight: lighter;
+  }
+  
+  .input-box i  {
+    position: absolute;
+  }
+  
+  h1, p  {
+    text-align: center;
+  }
+  
+  p   {
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: lighter;
+  }
+  
+  h3   {
+    font-weight: 400;
+  }
+  
+  h5   {
+    font-weight: 300;
+  }
+  
+  #kitty   {
+    padding: 50px; 
+    max-width: 100%;
+    height: auto;
+  }
+  
+  #gmail  {
+    height: 30px;
+    width: auto;
+    margin-left: 15px;
+    padding-bottom: 5px;
+  }
+  
+  button  {
+    background-color: var(--primary-dark);
+    color: var(--primary-text-color);
+    width: 90%;
+    border: none;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+  
+  span  {
+    color: forestgreen;
+    font-style: italic;
+    font-weight: normal;
+  }
+  
+  a   {
+    text-decoration: none;
+  }
+  
+  h4   {
+    margin-top: 5px;
+    font-weight: 300;
+    font-size: 20px;
+  }
+  
+  #gitlogo  {
+    margin-left: 25px;
+    width: 40px;
+    height: 45px;
+    padding-bottom: 5px;
+  }
+  
 }
