@@ -4,43 +4,15 @@ body  {
   font-family: 'Poppins', sans-serif;
 }
 
+@media only screen and (max-width: 750px) {
+
+}
+
 .wrapper  {
+  height: 100vh;
   padding: 5px;
   margin: 25px auto;
   width: 95%;
-}
-
-.wrapper .input-box   {
-  position: relative;
-  width: 100%;
-}
-
-.input-box input  {
-  width: 400px;
-  height: 20px;
-  margin-bottom: 10px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid var(--primary-text-color);
-  background: transparent;
-}
-
-.input-box input::placeholder {
-  color: var(--primary-text-color-translucent);
-  font-weight: lighter;
-}
-
-.input-box i  {
-  position: absolute;
-}
-
-form {
-  margin-top: 10px;
-  font-size: 18px;
-  padding: 30px 40px;
-  border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, .2);
-  background-color: transparent;
 }
 
 .columns  {
@@ -67,6 +39,39 @@ form {
   border-bottom-right-radius: 15px;
   border-top-right-radius: 15px;
   padding: 30px;
+}
+
+form {
+  margin-top: 10px;
+  font-size: 18px;
+  padding: 30px 40px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, .2);
+  background-color: transparent;
+}
+
+.wrapper .input-box   {
+  position: relative;
+  width: 100%;
+}
+
+.input-box input  {
+  width: 400px;
+  height: 20px;
+  margin-bottom: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--primary-text-color);
+  background: transparent;
+}
+
+.input-box input::placeholder {
+  color: var(--primary-text-color-translucent);
+  font-weight: lighter;
+}
+
+.input-box i  {
+  position: absolute;
 }
 
 h1, p  {
