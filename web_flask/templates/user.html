@@ -52,7 +52,7 @@
                 <h3 id="bio"> {{ user_info.bio }}</h3>
               </div>
               <div>
-                <h5 id="repos">{{ user_info.total_repos }} repos</h5>
+                <h5 id="user-repos">{{ user_info.total_repos }} repos</h5>
               </div>
               <div>
                 <h5 id="location"><img src="../static/images/location-pin.png"> {{ user_info.location }}</h5>
@@ -68,7 +68,7 @@
           <h1>REPOSITORIES</h1>
           <div class="scroll">
             {% for repo in repo_info %}
-            <div id="repos">
+            <div class="grid-container">
               <div class="card">
                 <h5 id="repo-name">{{ repo.name }}</h5>
                 <p id="description">{{ repo.description }}</p>

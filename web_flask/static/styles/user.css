@@ -27,7 +27,7 @@ body   {
   }
 
   .search input {
-    margin-left: 5%;
+    margin-left:15%;
     margin-right: 15px;
     height: 35px;
     border: none;
@@ -78,7 +78,7 @@ body   {
     font-weight: 400;
   }
 
-  #repos  {
+  #user-repos  {
     font-size: 15px;
     font-weight: 300;
   }
@@ -128,12 +128,13 @@ body   {
     color: var(--secondary-dark);
   }
   
-  #repos  {
+  .grid-container  {
     display: grid;
     grid-template-columns: 1fr;
+    margin: 20px;
   }
   
-  #repos .card {
+  .grid-container .card {
     color: var(--primary-text-color);
     background-color: var(--primary-color);
     width: 90%;
@@ -273,17 +274,18 @@ body   {
     color: var(--secondary-dark);
   }
     
-  #repos  {
+  .grid-container  {
     font-weight: 300;
     display: grid;
     grid-template-columns: 1fr;
+    margin: 20px;
   }
   
-  #repos .card {
+  .grid-container .card {
     color: var(--primary-text-color);
     background-color: var(--primary-color);
-    width: 97.2%;
-    margin: 2.5%;
+    width: 92%;
+    margin-left: 7%;
     padding: 10px;
     border-radius: 10px;
     border: 1px var(--primary-dark) solid;
@@ -359,7 +361,7 @@ body   {
     font-weight: 400;
   }
   
-  #repos  {
+  #user-repos  {
     font-weight: 300;
   }
   
@@ -409,12 +411,13 @@ body   {
     color: var(--secondary-dark);
   }
     
-  #repos  {
+  .grid-container  {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
   }
   
-  #repos .card {
+  .grid-container .card {
     color: var(--primary-text-color);
     background-color: var(--primary-color);
     width: 97.2%;
@@ -454,6 +457,7 @@ body   {
 
 #open-menu {
   width: 35px;
+  position: absolute;
 }
 
 .side-bar {
@@ -500,7 +504,7 @@ a  {
 }
 
 div .scroll {
-  overflow-y: scroll; 
+  overflow-y: scroll;
   height:60vh;
 }
 
