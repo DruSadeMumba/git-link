@@ -19,8 +19,10 @@
       <div>
         <div class="search">
           <img src="../static/images/menu.png" id="open-menu" alt="menu" onclick="openNav()">
-          <input type="text" placeholder="search github user">
-          <img src="../static/images/search.png" id="search">  
+          <form id="search-form" method="POST" action="/search">
+            <input type="text" name="username" placeholder="search github user">
+            <img src="../static/images/search.png" id="search">  
+          </form>
         </div>
         <div class="side-bar" id="navigation">
           <div class="card">
