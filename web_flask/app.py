@@ -6,6 +6,12 @@ import requests
 import time
 app = Flask(__name__)
 
+@app.route('/', strict_slashes=False)
+def home():
+    default_username = 'octocat'
+    user_info = get_github_user_info(default_username)
+    repo_info = get_user_repos(default_username)
+    return render_template('user.html', user_info=user_info, repo_info=repo_info)
 
 @app.route('/search', methods=['POST'], strict_slashes=False)
 def search():
@@ -18,13 +24,12 @@ def search():
         return render_template('404.html'), 404
     return render_template('user.html', user_info=user_info, repo_info=repo_info)
 
-
 def get_github_user_info(username):
     token = os.getenv('GITHUB_TOKEN')
     headers = {'Authorization': f'token {token}'}
     response = requests.get(f'https://api.github.com/users/{username}', headers=headers)
     if response.status_code != 200:
-        return "Failed to fetch user information from GitHub.", 500
+        return None
     data = response.json()
     user_info = {
         'username': data.get('login'),
@@ -34,8 +39,8 @@ def get_github_user_info(username):
         'following': data.get('following'),
         'location': data.get('location')
     }
+    handle_rate_limit(response)
     return user_info
-
 
 def get_user_repos(username):
     token = os.getenv('GITHUB_TOKEN')
@@ -45,7 +50,7 @@ def get_user_repos(username):
     while url:
         response = requests.get(url, headers=headers)
         if response.status_code != 200:
-            return "Failed to fetch user information from GitHub.", 500
+            return None
         data = response.json()
         for repo in data:
             repo_info.append({
@@ -58,13 +63,15 @@ def get_user_repos(username):
             url = response.links['next']['url']
         else:
             url = None
-        if int(response.headers.get('X-RateLimit-Remaining', 0)) <= 0:
-            reset_time = int(response.headers.get('X-RateLimit-Reset', 0))
-            sleep_time = reset_time - time.time()
-            if sleep_time > 0:
-                time.sleep(sleep_time)
+        handle_rate_limit(response)
     return repo_info
 
+def handle_rate_limit(response):
+    if int(response.headers.get('X-RateLimit-Remaining', 0)) <= 0:
+        reset_time = int(response.headers.get('X-RateLimit-Reset', 0))
+        sleep_time = reset_time - time.time()
+        if sleep_time > 0:
+            time.sleep(sleep_time)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
