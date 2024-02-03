@@ -15,12 +15,14 @@ body   {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  overflow-y: scroll;
 }
 
 
 @media only screen and (max-width: 750px) {
   .search {
     width: 100%;
+    margin-bottom: 20px;
   }
 
   .search input {
@@ -56,7 +58,6 @@ body   {
 
   .user-info {
     position: relative;
-    margin-top: 10px;
     margin-bottom: 20px;
   }
 
@@ -179,6 +180,7 @@ body   {
 @media only screen and (min-width: 751px) and (max-width: 900px) {
   .search {
     width: 100%;
+    margin-bottom: 20px;
   }
   
   .search input {
@@ -246,6 +248,7 @@ body   {
   
   button  {
     margin-top: 50px;
+    margin-bottom: 100px;
     border: none;
     background-color: var(--primary-dark);
     color: var(--primary-text-color);
@@ -315,6 +318,7 @@ body   {
 @media only screen and (min-width: 901px) {
   .search {
     width: 100%;
+    margin-bottom: 20px;
   }
   
   .search input {
@@ -380,6 +384,7 @@ body   {
   
   button  {
     margin-top: 60px;
+    margin-bottom: 100px;
     border: none;
     background-color: var(--primary-dark);
     color: var(--primary-text-color);
