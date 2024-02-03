@@ -24,6 +24,7 @@ body   {
 
   .search input {
     margin-left: 5%;
+    margin-right: 15px;
     height: 35px;
     border: none;
     text-align: center;
@@ -61,7 +62,7 @@ body   {
   .more-user-info  {
     position: absolute;
     height: 150px;
-    left: 200px;
+    right: 30px;
     top: 0px;
   }
 
@@ -132,9 +133,9 @@ body   {
   #repos .card {
     color: var(--primary-text-color);
     background-color: var(--primary-color);
-    width: 97.2%;
-    margin: 2.5%;
-    padding: 10px;
+    width: 90%;
+    margin-left: 5%;
+    padding: 15px;
     border-radius: 10px;
     border: 1px var(--primary-dark) solid;
   }
@@ -178,14 +179,11 @@ body   {
   .search {
     width: 100%;
   }
-
-  .columns  {
-    height: 90vh;
-  }
   
   .search input {
     margin-left: 5%;
-    height: 50px;
+    margin-right: 15px;
+    height: 40px;
     border: none;
     text-align: center;
     color: var(--primary-text-color);
@@ -196,12 +194,12 @@ body   {
   
   .search ::placeholder {
     color: var(--primary-text-color-translucent);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
   }
   
   .search #search {
-    width: 50px;
+    width: 40px;
   }
   
   #column-1 {
@@ -209,20 +207,26 @@ body   {
   }
   
   #ppic {
-    width: 250px;
+    width: 220px;
     margin-top: 20px;
     border-radius: 50%;
     margin-bottom: 20px;
   }
+
+  #username {
+    font-size: 27px;
+    font-weight: 400;
+  }
   
   #bio  {
-    font-weight: 400;
+    font-size: 25px;
+    font-weight: 300;
   }
     
   #follower img {
-    width: 30px;
+    width: 25px;
     margin-right: 5px;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
   }
   
   #followers, #following {
@@ -231,16 +235,16 @@ body   {
   }
   
   #location {
-    font-weight: 400;
+    font-weight: 300;
   }
   
   #location img {
-    width: 30px;
-    padding-bottom: 10px;
+    width: 25px;
+    padding-bottom: 5px;
   }
   
   button  {
-    margin-top: 60px;
+    margin-top: 50px;
     border: none;
     background-color: var(--primary-dark);
     color: var(--primary-text-color);
@@ -252,8 +256,8 @@ body   {
   }
 
   #column-2 {
-    width: 67.5%;
-    margin-left: 2.5%;
+    width: 60%;
+    margin-left: 10%;
   }
   
   #column-2 h1  {
@@ -311,14 +315,11 @@ body   {
   .search {
     width: 100%;
   }
-
-  .columns  {
-    height: 90vh;
-  }
   
   .search input {
     margin-left: 5%;
-    height: 50px;
+    margin-right: 15px;
+    height: 40px;
     border: none;
     text-align: center;
     color: var(--primary-text-color);
@@ -334,7 +335,7 @@ body   {
   }
   
   .search #search {
-    width: 50px;
+    width: 40px;
   }
   
   #column-1 {
