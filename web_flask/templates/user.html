@@ -42,7 +42,7 @@
         <div class="column" id="column-1">
           <div class="user-info">
             <div>
-              <img src="../static/images/ppic.jpg" id="ppic">
+              <img id="ppic" src="{{ user_info.avatar_url or url_for('static', filename='images/ppic.jpg') }}" alt="Profile Picture">
             </div>
             <div class="more-user-info">
               <div>
