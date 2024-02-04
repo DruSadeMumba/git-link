@@ -21,7 +21,6 @@ def log_in():
 
 @app_views.route("/login", methods=["POST", "GET"])
 def login():
-    render_template("login.html")
     if request.method == "POST":
         email = request.form['email']
         password = request.form['password']
@@ -35,13 +34,13 @@ def login():
             data = db.child("users").get()
             firebase_user["username"] = data.val()[firebase_user["uid"]]["username"]
 
-            return redirect(url_for('profile', uid=firebase_user["uid"]))
+            return redirect(url_for('app_views.profile', uid=firebase_user["uid"]))
 
         except Exception as e:
             print(f"Error logging in user: {str(e)}")
-            return redirect(url_for('login'))
+            return redirect(url_for('app_views.login'))
     else:
         if session.get("is_logged_in"):
-            return redirect(url_for('profile', uid=session["uid"]))
+            return redirect(url_for('app_views.profile', uid=session["uid"]))
         else:
-            return redirect(url_for('login'))
+            return redirect(url_for('app_views.login'))

@@ -37,14 +37,14 @@ def signup():
             data = {"username": username, "email": email}
             db.child("users").child(firebase_user["uid"]).set(data)
 
-            return redirect(url_for('profile', uid=firebase_user["uid"]))
+            return redirect(url_for('app_views.profile', uid=firebase_user["uid"]))
 
         except Exception as e:
             print(f"Error creating user: {str(e)}")
-            return redirect(url_for('signup'))
+            return redirect(url_for('app_views.signup'))
 
     else:
         if session.get("is_logged_in"):
-            return redirect(url_for('profile', uid=session["uid"]))
+            return redirect(url_for('app_views.profile', uid=session["uid"]))
         else:
-            return redirect(url_for('signup'))
+            return redirect(url_for('app_views.signup'))
