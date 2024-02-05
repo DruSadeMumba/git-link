@@ -35,7 +35,6 @@ def signup():
             data = {"username": username, "email": email}
             db.child("users").child(session["uid"]).set(data)
 
-            print(f"User created: {session['uid']}")
             return redirect(url_for('app_views.profile', uid=session["uid"]))
 
         except Exception as e:
@@ -46,5 +45,4 @@ def signup():
         if 'is_logged_in' in session and session['is_logged_in']:
             return redirect(url_for('app_views.profile', uid=session["uid"]))
         else:
-            print(f"Not signed in")
             return render_template("signup.html")

@@ -13,22 +13,20 @@ auth = firebase.auth()
 db = firebase.database()
 
 
-@app_views.route("/profile/", methods=["POST", "GET"], strict_slashes=False)
+@app_views.route("/profile", methods=["POST", "GET"], strict_slashes=False)
 def my_profile():
     if 'is_logged_in' in session and session['is_logged_in']:
         return render_template('profile.html', uid=session["uid"])
     else:
-        print(f"Redirect in my_profile()")
         return redirect(url_for('app_views.login'))
 
 
-@app_views.route("/profile/<uid>/", methods=["POST", "GET"], strict_slashes=False)
+@app_views.route("/profile/<uid>", methods=["POST", "GET"], strict_slashes=False)
 def profile(uid):
     if 'is_logged_in' in session and session['is_logged_in']:
         return render_template('profile.html', uid=uid, email=session["email"],
                                username=session["username"])
     else:
-        print(f"Redirect in profile(uid)")
         return redirect(url_for('app_views.login'))
 
 

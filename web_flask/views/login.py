@@ -43,5 +43,4 @@ def login():
         if 'is_logged_in' in session and session['is_logged_in']:
             return redirect(url_for('app_views.profile', uid=session["uid"]))
         else:
-            print(f"Not logged in")
             return redirect(url_for('app_views.login'))
