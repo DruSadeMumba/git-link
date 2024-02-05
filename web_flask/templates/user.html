@@ -62,7 +62,7 @@
           <div id="follower">
             <h5><img src="../static/images/users.png"> <span id="followers"> {{ user_info.followers }} followers </span><span id="following"> {{ user_info.following}} following</span> </h5>
           </div>
-          <button class="button">VIEW GITHUB PROFILE</button>
+          <button class="button"> <a href="{{ user_info.html_url }}?tab=repositories" target="blank">VIEW GITHUB PROFILE</a></button>
         </div>
         <div class="column" id="column-2">
           <h1>REPOSITORIES</h1>

@@ -10,6 +10,7 @@ from web_flask.config import Config
 app.config.from_object(Config)
 app.url_map.strict_slashes = False
 token = os.getenv('GITHUB_TOKEN')
+headers = {'Authorization': f'token {token}'}
 
 
 @app_views.route("/search/drusademumba", methods=['GET'])
@@ -42,7 +43,6 @@ def return_user(username):
 
 
 def get_github_user_info(username):
-    headers = {'Authorization': f'token {token}'}
     response = requests.get(f'https://api.github.com/users/{username}', headers=headers)
     if response.status_code != 200:
         return None
@@ -54,14 +54,14 @@ def get_github_user_info(username):
         'followers': data.get('followers'),
         'following': data.get('following'),
         'location': data.get('location'),
-        'avatar_url': data.get('avatar_url')
+        'avatar_url': data.get('avatar_url'),
+        'html_url': data.get('html_url')
     }
     handle_rate_limit(response)
     return user_info
 
 
 def get_user_repos(username):
-    headers = {'Authorization': f'token {token}'}
     url = f'https://api.github.com/users/{username}/repos'
     repo_info = []
     while url:
