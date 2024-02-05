@@ -272,3 +272,8 @@ body  {
   }
   
 }
+
+#guest  {
+  font-weight: 200;
+  color:burlywood;
+}
