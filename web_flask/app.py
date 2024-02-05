@@ -9,9 +9,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 app.secret_key = app.config['SECRET_KEY']
 app.register_blueprint(app_views)
-app.url_map.strict_slashes = False
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
-
 
 if __name__ == "__main__":
     """ Main Function """

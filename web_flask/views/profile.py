@@ -1,30 +1,38 @@
 #!/usr/bin/python3
 """Firebase user profile"""
 import pyrebase
-from flask import redirect, url_for
-from web_flask import app_views, app
+from flask import redirect, url_for, session, render_template
+from web_flask import app_views
 from web_flask.config import Config
 
-app.config.from_object(Config)
-firebaseConfig = app.config['FIREBASE_CONFIG']
+app_config = Config()
+firebaseConfig = app_config.FIREBASE_CONFIG
+
 firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
-firebase_user = {"is_logged_in": False, "username": "", "email": "", "uid": ""}
 db = firebase.database()
 
 
-@app_views.route("/profile")
+@app_views.route("/profile/", methods=["POST", "GET"], strict_slashes=False)
 def my_profile():
-    if firebase_user["is_logged_in"]:
-        return redirect(url_for('app_views.profile', uid=firebase_user["uid"]))
+    if 'is_logged_in' in session and session['is_logged_in']:
+        return render_template('profile.html', uid=session["uid"])
     else:
+        print(f"Redirect in my_profile()")
         return redirect(url_for('app_views.login'))
 
 
-@app_views.route("/profile/<uid>")
+@app_views.route("/profile/<uid>/", methods=["POST", "GET"], strict_slashes=False)
 def profile(uid):
-    if firebase_user["is_logged_in"]:
-        return redirect(url_for('app_views.profile', uid=uid, email=firebase_user["email"],
-                                username=firebase_user["username"]))
+    if 'is_logged_in' in session and session['is_logged_in']:
+        return render_template('profile.html', uid=uid, email=session["email"],
+                               username=session["username"])
     else:
+        print(f"Redirect in profile(uid)")
         return redirect(url_for('app_views.login'))
+
+
+@app_views.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for('app_views.gituser'))
