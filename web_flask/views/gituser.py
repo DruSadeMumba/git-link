@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Retrieve GitHub info"""
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 import os
 import requests
 import time
@@ -20,16 +20,25 @@ def search():
     return render_template('user.html', user_info=user_info, repo_info=repo_info)
 
 
-@app_views.route("/search/", methods=['POST'])
+@app_views.route("/search", methods=['POST'])
 def fetch_user():
-    username = request.form.get('username')
+    if request.method == 'POST':
+        username = request.form.get('username')
+        user_info = get_github_user_info(username)
+        if user_info:
+            return redirect(url_for('app_views.return_user', username=username))
+        else:
+            return render_template('404.html')
+
+
+@app_views.route("/search/<username>", methods=['GET'])
+def return_user(username):
     user_info = get_github_user_info(username)
-    if user_info is None:
-        return render_template('404.html'), 404
-    repo_info = get_user_repos(username)
-    if repo_info is None:
-        return render_template('404.html'), 404
-    return render_template('user.html', user_info=user_info, repo_info=repo_info)
+    if user_info:
+        repo_info = get_user_repos(username)
+        return render_template('user.html', user_info=user_info, repo_info=repo_info)
+    else:
+        return render_template('404.html')
 
 
 def get_github_user_info(username):
