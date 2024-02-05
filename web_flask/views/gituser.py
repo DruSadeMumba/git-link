@@ -1,17 +1,23 @@
 #!/usr/bin/python3
 """Retrieve GitHub info"""
-import os
 from flask import render_template, request
-from web_flask import app_views
+import os
 import requests
 import time
+from web_flask import app, app_views
+from web_flask.config import Config
 
+app.config.from_object(Config)
+app.url_map.strict_slashes = False
 token = os.getenv('GITHUB_TOKEN')
 
 
-@app_views.route("/search/", methods=['GET'])
+@app_views.route("/search/drusademumba", methods=['GET'])
 def search():
-    return render_template('user.html', user_info='', repo_info='')
+    username = 'drusademumba'
+    user_info = get_github_user_info(username)
+    repo_info = get_user_repos(username)
+    return render_template('user.html', user_info=user_info, repo_info=repo_info)
 
 
 @app_views.route("/search/", methods=['POST'])
