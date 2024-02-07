@@ -1,10 +1,10 @@
 *   {
   font-family: 'Poppins', sans-serif;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   color: var(--primary-text-color);
 }
 
-#paw, h1, h3, .footer   {
+h1, h3, .footer   {
   text-align: center;
   font-size: 20px;
 }
@@ -13,6 +13,33 @@ h3  {
   color: var(--primary-dark);
   font-size: 40px;
 }
+
+.paw-print  img{
+  animation: bounce 0.9s infinite;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  
+}
+
+.shadow {
+  animation: shrink 0.9s infinite;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  
+  height: 10px;
+  width: 250px;
+  border-radius: 50%;
+  background-color: var(--accent-color-translucent);
+  margin-bottom: 20px;
+  z-index: -1;
+}
+
+@keyframes shrink {
+  50%{
+    transform: scaleX(0.5)
+  }
+}
+
 
 @media only screen and (max-width: 750px) {
   h1   {
@@ -25,13 +52,37 @@ h3  {
     font-weight: 300;
   } 
 
-  #paw  {
+  .paw  {
     margin-top: 30px;
-    margin-bottom: 50px;
+    height: 50vh;
+    margin-bottom: 30px;
   }
 
-  #paw img  {
+  .paw img  {
     width: 200px;
+  }
+
+  @keyframes bounce {
+    10%{
+      height: 200px;
+      width: 200px;
+    }
+    30%{
+      height: 200px;
+      width: 160px;
+    }
+    50%{
+      height: 120px;
+      width: 228px;
+      transform: translateY(30vh);
+    }
+    75%{
+      height: 200px;
+      width: 228px;
+    }
+    100%{
+      transform: translateY(0px);
+    }
   }
   
   .footer   {
@@ -56,8 +107,36 @@ h3  {
     font-size: 50px;
   }
 
-  #paw  {
-    margin: 50px;
+  .paw  {
+    margin-bottom: 20px;
+    height: 55vh;
+  }
+
+  .paw img  {
+    width: 250px;
+  }
+
+  @keyframes bounce {
+    10%{
+      height: 250px;
+      width: 250px;
+    }
+    30%{
+      height: 250px;
+      width: 200px;
+    }
+    50%{
+      height: 150px;
+      width: 285px;
+      transform: translateY(30vh);
+    }
+    75%{
+      height: 250px;
+      width: 285px;
+    }
+    100%{
+      transform: translateY(0px);
+    }
   }
 
   .footer   {
@@ -69,6 +148,6 @@ h3  {
   }
 
   #back   {
-    margin: 10px;
+    margin-left: 10px;
   }
 }
