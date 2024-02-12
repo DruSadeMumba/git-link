@@ -17,9 +17,9 @@
     <div class="wrapper">
       <div class="row">
         <div class="col-md-3">
-          <a href="http://127.0.0.1:5000/search/"><img src="{{ url_for('static', filename='images/back-arrow.png') }}" alt="back" id="back"></a>
-          <h1>{{username}}</h1>
-          <h2>{{email}}</h2>
+          <a href="http://127.0.0.1:5000/search/github"><img src="{{ url_for('static', filename='images/back-arrow.png') }}" alt="back" id="back"></a>
+          <h1> {{ username }} </h1>
+          <h2> {{ email }} </h2>
         </div>
         <div class="col-md-6">
           <h1>SAVED REPOSITORIES</h1>
@@ -39,5 +39,9 @@
         </div>
       </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="../static/scripts/profile.js"></script>
   </body>
 </html>
