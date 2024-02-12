@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/colors.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}">
     <script src="{{ url_for('static', filename='scripts/jquery-3.6.0.js') }}"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
     <title>Git-Link</title>
   </head>
   <body>
@@ -77,7 +79,7 @@
                   <span id="stars"><img src="{{ url_for('static', filename='images/star.png') }}" alt="star">{{ repo.stargazers_count }} Stars</span>
                 </p>
                 <div id="add-repo">
-                  <img src="{{ url_for('static', filename='images/add.png') }}" alt="add" onclick="firebaseSave()">
+                  <img src="{{ url_for('static', filename='images/add.png') }}" alt="save" onclick="firebaseSave()">
                 </div>
               </div>
               {% endfor %}
