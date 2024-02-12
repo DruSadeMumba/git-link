@@ -23,26 +23,32 @@
         </div>
         <div class="column" id="column2">
           <h1 id="main">WELCOME BACK!</h1>
-          <form action="http://127.0.0.1:5000/login" method="POST">
-            <h3>Login to account</h3>
-            <h4>E-mail</h4> 
-            <div class="input-box">
-              <input name="email" type="email" placeholder="dru@example.com" required>
-              <i class='bx bxs-user bx-md' style='color: var(--primary-dark)'  ></i>
-            </div>    
-            <h4>Password</h4>
-            <div class="input-box">
-              <input name="password" type="password" placeholder="lepass1234" required>
-              <i class='bx bxs-lock-alt bx-md' style='color: var(--primary-dark)'  ></i>
-            </div>
-            <button type="submit">LOGIN</button>
+          <div class="contain">
+            <form>
+              <h3>Login to account</h3>
+              <h4>E-mail</h4>
+              <div class="input-box">
+                <input id="email" type="email" placeholder="dru@example.com" required>
+                <i class='bx bxs-user bx-md' style='color: var(--primary-dark)'  ></i>
+              </div>
+              <h4>Password</h4>
+              <div class="input-box">
+                <input id="password" type="password" placeholder="lepass1234" required>
+                <i class='bx bxs-lock-alt bx-md' style='color: var(--primary-dark)'  ></i>
+              </div>
+            </form>
+            <button onclick="login()">LOGIN</button>
             <h5>or</h5>
             <h5>Sign-up with <a href="#"><img src="../static/images/googles.png" id="gmail" alt="google"></a><a href="#"><img src="../static/images/github-logo.png" id="gitlogo" alt="github"></a></h5>
             <p>don't have an account? <a href="http://127.0.0.1:5000/signup/"><span>SIGN-UP</span></a></p>
-            <a href="http://127.0.0.1:5000/search/drusademumba" id="guest">...continue as guest</a>
-          </form>
+            <a href="http://127.0.0.1:5000/search/github" id="guest">...continue as guest</a>
+          </div>
         </div>
       </section>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="../static/scripts/login.js"></script>
   </body>
 </html>
