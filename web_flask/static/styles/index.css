@@ -26,7 +26,7 @@ h3  {
 
 img {
   opacity: 0;
-  animation: fadeInAnimation 2s ease-in-out forwards;
+  animation: fadeInAnimation 3s ease-in-out forwards;
 }
 
 @keyframes fadeInAnimation {

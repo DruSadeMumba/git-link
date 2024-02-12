@@ -54,7 +54,7 @@ body  {
     padding-right: 30px;
   }
   
-  form {
+  .contain {
     margin-top: 10px;
     font-size: 18px;
     padding: 30px 40px;
@@ -172,7 +172,7 @@ body  {
     padding: 30px;
   }
   
-  form {
+  .contain {
     margin-top: 10px;
     font-size: 18px;
     padding: 30px 40px;
