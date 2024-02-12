@@ -2,8 +2,8 @@
 """ Flask Application """
 from flask import Flask
 from flask_cors import CORS
-from web_flask import app_views
 from web_flask.config import Config
+from web_flask import app_views
 
 app = Flask(__name__)
 app.config.from_object(Config)
