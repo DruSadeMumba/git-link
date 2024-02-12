@@ -23,36 +23,42 @@
         </div>
         <div class="column" id="column2">
           <h1>Welcome!</h1>
-          <form action="http://127.0.0.1:5000/signup" method="POST">
-            <h3>Create an account</h3>
-            <h4>Username</h4> 
-            <div class="input-box">
-              <input name="username" type="text" placeholder="drumumba" required>
-              <i class='bx bxs-user bx-sm' style='color: var(--primary-dark)'  ></i>
-            </div>
-            <h4>E-mail</h4> 
-            <div class="input-box">
-              <input name="email" type="email" placeholder="dru@example.com" required>
-              <i class='bx bxs-envelope bx-sm' style='color: var(--primary-dark)'  ></i>
-            </div>    
-            <h4>Password</h4>      
-            <div class="input-box">
-              <input name="password" type="password" placeholder="lepass1234" required>
-              <i class='bx bxs-lock-alt bx-sm' style='color: var(--primary-dark)'  ></i>
-            </div>
-            <h4>Repeat password</h4>      
-            <div class="input-box">
-              <input name="re-password" type="password" placeholder="lepass1234" required>
-              <i class='bx bxs-lock-alt bx-sm' style='color: var(--primary-dark)'  ></i>
-            </div>
-            <button type="submit">CREATE ACCOUNT</button>
+          <div class="contain">
+            <form>
+              <h3>Create an account</h3>
+              <h4>Username</h4> 
+              <div class="input-box">
+                <input id="username" type="text" placeholder="drumumba" required>
+                <i class='bx bxs-user bx-sm' style='color: var(--primary-dark)'  ></i>
+              </div>
+              <h4>E-mail</h4> 
+              <div class="input-box">
+                <input id="email" type="email" placeholder="dru@example.com" required>
+                <i class='bx bxs-envelope bx-sm' style='color: var(--primary-dark)'  ></i>
+              </div>    
+              <h4>Password</h4>      
+              <div class="input-box">
+                <input id="password" type="password" placeholder="lepass1234" required>
+                <i class='bx bxs-lock-alt bx-sm' style='color: var(--primary-dark)'  ></i>
+              </div>
+              <h4>Repeat password</h4>      
+              <div class="input-box">
+                <input id="re-password" type="password" placeholder="lepass1234" required>
+                <i class='bx bxs-lock-alt bx-sm' style='color: var(--primary-dark)'  ></i>
+              </div>
+            </form>
+            <button onclick="register()">CREATE ACCOUNT</button>
             <h5>or</h5>
             <h5>Sign-up with <a href="#"><img src="../static/images/googles.png" id="gmail" alt="google"></a><a href="#"><img src="../static/images/github-logo.png" id="gitlogo" alt="github"></a></h5>
             <p>already have an account? <a href="http://127.0.0.1:5000/login"><span>LOGIN</span></a></p>
-            <a href="http://127.0.0.1:5000/search/drusademumba" id="guest">...continue as guest</a>
-          </form>
+            <a href="http://127.0.0.1:5000/search/github" id="guest">...continue as guest</a>  
+          </div>
         </div>
       </section>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="../static/scripts/sign-up.js"></script>
   </body>
 </html>
