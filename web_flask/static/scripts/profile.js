@@ -13,9 +13,8 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
       console.log('No user signed in.');
       setTimeout(() => {
-        window.location.href = "http://127.0.0.1:5000/profile/" + user.uid;
+        window.location.href = "http://127.0.0.1:5000/login/";
       }, 3000);
     }
   });
 });
-
