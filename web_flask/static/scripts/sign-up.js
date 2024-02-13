@@ -5,26 +5,23 @@ register = () => {
   let rePassword = document.getElementById('re-password').value
   let username = document.getElementById('username').value
 
-  if (validate_field(username) === false) {
-    alert('Invalid Username!!')
-    return
-  }
+  const validations = [
+    { isValid: validate_field(username), errorMessage: 'Invalid Username!!' },
+    { isValid: validate_email(email), errorMessage: 'Invalid Email!!' },
+    { isValid: validate_password(password), errorMessage: 'Invalid Password!!' }
+  ];
 
-  if (validate_email(email) === false) {
-    alert('Invalid Email!!')
-    return
-  }
-
-  if (validate_password(password) === false) {
-    alert('Invalid Password!!')
-    return
+  for (const validation of validations) {
+    if (!validation.isValid) {
+      alert(validation.errorMessage);
+      return;
+    }
   }
 
   if (password !== rePassword) {
-    alert("Password mismatch!")
-    return
+    alert("Password mismatch!");
+    return;
   }
-
 
   auth.createUserWithEmailAndPassword(email, password)
   .then(() => {
@@ -33,11 +30,12 @@ register = () => {
     var user_data = {
       email : email,
       username : username,
-      last_login : Date.now()
+      last_login : Date.now(),
+      saved_repos : []
     }
     database_ref.child('users/' + user.uid).set(user_data)
     alert('User Created!!')
-    setTimeout(function() {
+    setTimeout(() => {
       window.location.href = "http://127.0.0.1:5000/profile/" + user.uid;
     }, 3000);
   })

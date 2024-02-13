@@ -3,14 +3,16 @@ login = () => {
   email = document.getElementById('email').value
   password = document.getElementById('password').value
 
-  if (validate_email(email) === false) {
-    alert('Invalid Email!!')
-    return
-  }
+  const validations = [
+    { isValid: validate_email(email), errorMessage: 'Invalid Email!!' },
+    { isValid: validate_password(password), errorMessage: 'Invalid Password!!' }
+  ];
 
-  if (validate_password(password) === false) {
-    alert('Invalid Password!!')
-    return
+  for (const validation of validations) {
+    if (!validation.isValid) {
+      alert(validation.errorMessage);
+      return;
+    }
   }
 
   auth.signInWithEmailAndPassword(email, password)
@@ -24,7 +26,7 @@ login = () => {
 
     database_ref.child('users/' + user.uid).update(user_data)
     alert('User Logged In!!')
-    setTimeout(function() {
+    setTimeout(() => {
       window.location.href = "http://127.0.0.1:5000/profile/" + user.uid;
     }, 3000);
   })
