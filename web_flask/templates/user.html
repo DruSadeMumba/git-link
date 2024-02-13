@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/user.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/colors.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}">
-    <script src="{{ url_for('static', filename='scripts/jquery-3.6.0.js') }}"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
     <title>Git-Link</title>
   </head>
   <body>
@@ -79,7 +76,7 @@
                   <span id="stars"><img src="{{ url_for('static', filename='images/star.png') }}" alt="star">{{ repo.stargazers_count }} Stars</span>
                 </p>
                 <div id="add-repo">
-                  <img src="{{ url_for('static', filename='images/add.png') }}" alt="save" onclick="firebaseSave()">
+                  <img id="savebtn" src="{{ url_for('static', filename='images/add.png') }}" alt="save" onclick="firebaseSave()">
                 </div>
               </div>
               {% endfor %}
@@ -91,6 +88,10 @@
     <div class="card-footer">
       <h5><img src="{{ url_for('static', filename='images/copyright-dark.png') }}" alt="copyright"><a href="https://github.com/DruSadeMumba/git-link" id="github-link">2024 Git-Link</a></h5>
     </div>
+    <script src="{{ url_for('static', filename='scripts/jquery-3.6.0.js') }}"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
+    <script src="{{ url_for('static', filename='scripts/sdk.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/user.js') }}"></script>
   </body>
 </html>
