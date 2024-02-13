@@ -19,9 +19,10 @@ login = () => {
   .then(() => {
     var user = auth.currentUser
     var database_ref = database.ref()
+    const date = new Date();
 
     var user_data = {
-      last_login : Date.now()
+      last_login : date.toUTCString()
     }
 
     database_ref.child('users/' + user.uid).update(user_data)
@@ -35,7 +36,7 @@ login = () => {
     var error_code = error.code
     var error_message = error.message
 
-    alert(error_code)
+    console.log(error_code)
     alert(error_message)
   })
 }
