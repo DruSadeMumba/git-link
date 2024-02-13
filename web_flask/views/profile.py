@@ -15,9 +15,7 @@ def profile(uid):
     uid_ref = db.reference('users/' + uid)
     uid_data = uid_ref.get()
     if uid_data:
-        username = uid_data.get('username')
-        email = uid_data.get('email')
-        return render_template('profile.html', uid=uid, username=username, email=email)
+        return render_template('profile.html', uid=uid)
     else:
         return 'UID not found in the database', 404
 
