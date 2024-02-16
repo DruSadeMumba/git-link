@@ -148,12 +148,24 @@ body   {
   .grid-container .card {
     color: var(--primary-text-color);
     background-color: var(--primary-color);
-    width: 90%;
-    margin-left: 5%;
-    margin-bottom: 15px;
-    padding: 15px;
     border-radius: 10px;
     border: 1px var(--primary-dark) solid;
+    margin-bottom: 15px;
+    margin-left: 5%;
+  }
+
+  .grid-container .card-body {
+    width: 100%;
+  }
+
+  .grid-container .card-footer {
+    background-color: #364c64;
+  }
+
+  .grid-container .card #more-info  {
+    width: 100%;
+    padding: 0;
+    margin: 0;
   }
 
   #repo-name  {
@@ -163,29 +175,29 @@ body   {
   #description  {
     font-size: 15px;
   }
-  
-  #more-info  {
-    position: relative;
-    width: 100%;
-  }
-  
+    
   #more-info img {
     width: 20px;
     margin-right: 5px;
     padding-bottom: 7px;
   }
   
+  #more-info {
+    width: 100%;
+    position: relative;
+  }
+
   #stars  {
     position: absolute;
     right: 20px;
   }
   
-  #add-repo  {
+  #share-repo {
     width: 100%;
     text-align: end;
   }
   
-  #add-repo img {
+  #share-repo img {
     width: 20px;
     margin-right: 5px;
   }
@@ -296,14 +308,27 @@ body   {
   .grid-container .card {
     color: var(--primary-text-color);
     background-color: var(--primary-color);
-    width: 92%;
     margin-left: 7%;
     margin-bottom: 15px;
-    padding: 10px;
     border-radius: 10px;
     border: 1px var(--primary-dark) solid;
   }
-  
+
+
+  .grid-container .card-body {
+    width: 100%;
+  }
+
+  .grid-container .card-footer {
+    background-color: #364c64;
+  }
+
+  .grid-container .card #more-info  {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
   #more-info  {
     position: relative;
     width: 100%;
@@ -320,13 +345,13 @@ body   {
     right: 50px;
   }
   
-  #add-repo  {
+  #share-repo  {
     width: 100%;
     text-align: end;
   }
   
-  #add-repo img {
-    width: 40px;
+  #share-repo img {
+    width: 30px;
     margin-right: 5px;
   }
 }
@@ -435,10 +460,24 @@ body   {
     background-color: var(--primary-color);
     width: 97.2%;
     margin: 2.5%;
-    padding: 10px;
     border-radius: 10px;
     border: 1px var(--primary-dark) solid;
   }
+
+  .grid-container .card-body {
+    width: 100%;
+  }
+
+  .grid-container .card-footer {
+    background-color: #364c64;
+  }
+
+  .grid-container .card #more-info  {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
   
   #more-info  {
     position: relative;
@@ -456,12 +495,12 @@ body   {
     right: 50px;
   }
   
-  #add-repo  {
+  #share-repo  {
     width: 100%;
     text-align: end;
   }
   
-  #add-repo img {
+  #share-repo img {
     width: 30px;
     margin-right: 5px;
   }
@@ -521,7 +560,7 @@ div .scroll {
   height:60vh;
 }
 
-.card-footer  {
+#foot  {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -530,6 +569,11 @@ div .scroll {
   text-align: center;
   border: none;
   background-color: var(--primary-text-color);
+}
+
+.card-footer #card-foot {
+  padding: 0;
+  margin: 0;
 }
 
 .card-footer #github-link {
@@ -541,3 +585,8 @@ button a  {
   text-decoration: none;
   color: var(--primary-text-color);
 }
+
+#share-repo img:hover{
+  cursor: pointer;
+}
+
