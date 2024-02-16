@@ -19,23 +19,25 @@ register = () => {
   }
 
   if (password !== rePassword) {
-    alert("Password mismatch!");
-    return;
+        alert("Password mismatch!");
+        return;
   }
 
   auth.createUserWithEmailAndPassword(email, password)
   .then(() => {
     var user = auth.currentUser
     var database_ref = database.ref()
+    const date = new Date();
     var user_data = {
       email : email,
       username : username,
-      last_login : Date.now(),
+      last_login : date.toUTCString(),
       saved_repos : []
     }
+    
     database_ref.child('users/' + user.uid).set(user_data)
     alert('User Created!!')
-    setTimeout(() => {
+    setTimeout(function() {
       window.location.href = "http://127.0.0.1:5000/profile/" + user.uid;
     }, 3000);
   })
@@ -44,7 +46,7 @@ register = () => {
     const error_code = error.code;
     const error_message = error.message;
 
-    alert(error_code)
+    console.log(error_code)
     alert(error_message)
   })
 }
