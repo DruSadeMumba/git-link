@@ -1,7 +1,7 @@
 //firebase login config
 login = () => {
-  email = document.getElementById('email').value
-  password = document.getElementById('password').value
+  let email = document.getElementById('email').value
+  let password = document.getElementById('password').value
 
   const validations = [
     { isValid: validate_email(email), errorMessage: 'Invalid Email!!' },
@@ -17,24 +17,24 @@ login = () => {
 
   auth.signInWithEmailAndPassword(email, password)
   .then(() => {
-    var user = auth.currentUser
-    var database_ref = database.ref()
-    const date = new Date();
+    let user = auth.currentUser
+    let database_ref = database.ref()
+    let date = new Date();
 
-    var user_data = {
+    let user_data = {
       last_login : date.toUTCString()
     }
 
     database_ref.child('users/' + user.uid).update(user_data)
     alert('User Logged In!!')
     setTimeout(() => {
-      window.location.href = "http://127.0.0.1:5000/profile/" + user.uid;
+      window.location.href = profileUrl + user.uid;
     }, 3000);
   })
 
   .catch((error) => {
-    var error_code = error.code
-    var error_message = error.message
+    let error_code = error.code
+    let error_message = error.message
 
     console.log(error_code)
     alert(error_message)

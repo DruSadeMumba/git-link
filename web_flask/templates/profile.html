@@ -17,7 +17,7 @@
     <div class="wrapper">
       <div class="row">
         <div class="col-md-3">
-          <a href="{{ url_for('app_views.search') }}"><img src="{{ url_for('static', filename='images/back-arrow.png') }}" alt="back" id="back"></a>
+          <a href="{{ url_for('app_views.back') }}"><img src="{{ url_for('static', filename='images/back-arrow.png') }}" alt="back" id="back"></a>
           <h1 id="username"></h1>
           <h2 id="email"></h2>
         </div>
@@ -30,7 +30,7 @@
               <p id="description">the description</p>
               <p id="more-info">
                 <span id="share"> <img src="{{ url_for('static', filename='images/share.png') }}" alt="share"></span>
-                <span id="link"><img src="{{ url_for('static', filename='images/link.png') }}"></span>
+                <span id="link"><img src="{{ url_for('static', filename='images/link.png') }}" alt="link"></span>
               </p>
             </div>
             {% endfor %}
@@ -41,6 +41,9 @@
         </div>
       </div>
     </div>
+    <script>
+        var loginUrl = "{{ url_for('app_views.login') }}";
+    </script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>

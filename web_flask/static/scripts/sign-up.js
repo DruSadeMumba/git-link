@@ -25,10 +25,10 @@ register = () => {
 
   auth.createUserWithEmailAndPassword(email, password)
   .then(() => {
-    var user = auth.currentUser
-    var database_ref = database.ref()
+    let user = auth.currentUser
+    let database_ref = database.ref()
     const date = new Date();
-    var user_data = {
+    let user_data = {
       email : email,
       username : username,
       last_login : date.toUTCString(),
