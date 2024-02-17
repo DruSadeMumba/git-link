@@ -40,8 +40,8 @@
             <button onclick="login()">LOGIN</button>
             <h5>or</h5>
             <h5>Sign-up with <a href="#"><img src="../static/images/googles.png" id="gmail" alt="google"></a><a href="#"><img src="../static/images/github-logo.png" id="gitlogo" alt="github"></a></h5>
-            <p>don't have an account? <a href="http://127.0.0.1:5000/signup/"><span>SIGN-UP</span></a></p>
-            <a href="http://127.0.0.1:5000/search/github" id="guest">...continue as guest</a>
+            <p>don't have an account? <a href="{{ url_for('app_views.signup') }}"><span>SIGN-UP</span></a></p>
+            <a href="{{ url_for('app_views.search') }}" id="guest">...continue as guest</a>
           </div>
         </div>
       </section>
