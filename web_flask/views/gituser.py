@@ -9,8 +9,8 @@ from web_flask.config import Config
 
 app.config.from_object(Config)
 app.url_map.strict_slashes = False
-token = os.getenv('GITHUB_TOKEN')
-"""token = app.config['GITHUB_TOKEN']"""
+"""token = os.getenv('GITHUB_TOKEN')"""
+token = app.config['GITHUB_TOKEN']
 headers = {'Authorization': f'token {token}'}
 
 
@@ -20,6 +20,11 @@ def search():
     user_info = get_github_user_info(username)
     repo_info = get_user_repos(username)
     return render_template('user.html', user_info=user_info, repo_info=repo_info)
+
+
+@app_views.route("/404", methods=['GET'])
+def not_found():
+    return render_template('404.html')
 
 
 @app_views.route("/search", methods=['POST'])
