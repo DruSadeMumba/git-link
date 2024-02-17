@@ -75,7 +75,8 @@ body   {
 
   .more-user-info  {
     position: absolute;
-    height: 150px;
+    width: 60%;
+    height: fit-content;
     right: 30px;
     top: 0px;
   }
@@ -85,6 +86,7 @@ body   {
   }
 
   #bio  {
+    height: fit-content;
     font-size: 17px;
     font-weight: 400;
   }

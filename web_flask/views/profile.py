@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """Firebase user profile"""
 from firebase_admin import db
-from flask import redirect, url_for, render_template, request, session
+from flask import redirect, url_for, render_template
 from web_flask import app_views
 
 
-@app_views.route("/profile", strict_slashes=False)
+@app_views.route("/profile/", strict_slashes=False)
 @app_views.route("/profile/<uid>", strict_slashes=False)
 def profile(uid=""):
     uid_ref = db.reference('users/' + uid)

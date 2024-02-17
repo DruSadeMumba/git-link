@@ -37,7 +37,7 @@ register = () => {
     
     database_ref.child('users/' + user.uid).set(user_data)
     alert('User Created!!')
-    setTimeout(function() {
+    setTimeout(() => {
       window.location.href = "http://127.0.0.1:5000/profile/" + user.uid;
     }, 3000);
   })
