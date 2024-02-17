@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/user.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/colors.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}">
@@ -19,8 +21,8 @@
         <div class="search">
           <img src="{{ url_for('static', filename='images/menu.png') }}" id="open-menu" alt="menu" onclick="openNav()">
           <form id="search-form" method="POST" action="/search">
-            <input type="text" name="username" placeholder="search github user">
-            <img src="{{ url_for('static', filename='images/search.png') }}" id="search">
+            <input id="search-input" type="text" name="username" placeholder="search github user">
+            <img src="{{ url_for('static', filename='images/search-dark.png') }}" id="search">
           </form>
         </div>
         <div class="side-bar" id="navigation">
@@ -32,9 +34,8 @@
               <h1>MENU</h1>
             </div>
           </div>
-          <a href="http://127.0.0.1:5000/profile/"><h2 id="profile">Profile</h2></a>
           <a href="{{ url_for('app_views.login') }}"><h2 id="login">Login</h2></a>
-          <h2 id="share">Share</h2>
+          <h2 id="share" onclick="shareOptions()">Share</h2>
         </div>
       </div>
       <section class="columns">
@@ -69,14 +70,20 @@
             <div class="grid-container">
               {% for repo in repo_info %}
               <div class="card">
-                <h5 id="repo-name">{{ repo.name }}</h5>
-                <p id="description">{{ repo.description }}</p>
-                <p id="more-info">
-                  <span id="forks"> <img src="{{ url_for('static', filename='images/code-fork.png') }}" alt="fork">{{ repo.forks_count }} Forks</span>
-                  <span id="stars"><img src="{{ url_for('static', filename='images/star.png') }}" alt="star">{{ repo.stargazers_count }} Stars</span>
-                </p>
-                <div id="add-repo">
-                  <img id="savebtn" src="{{ url_for('static', filename='images/add.png') }}" alt="save" onclick="firebaseSave()">
+                <div class="card-body">
+                  <h5 id="repo-name">{{ repo.name }}</h5>
+                  <p id="description">{{ repo.description }}</p>  
+                </div>
+                <div class="card-footer" id="card-foot">
+                  <p id="more-info">
+                    <span id="forks"> <img src="{{ url_for('static', filename='images/code-fork.png') }}" alt="fork">{{ repo.forks_count }} Forks</span>
+                    <span id="stars"><img src="{{ url_for('static', filename='images/star.png') }}" alt="star">{{ repo.stargazers_count }} Stars</span>
+                  </p>  
+                  <div id="share-repo">
+                    <button class="button share-repo-btn" data-url="{{ repo.html_url }}">
+                      <img src="{{ url_for('static', filename='images/share.png') }}" alt="share">
+                    </button>
+                  </div>
                 </div>
               </div>
               {% endfor %}
@@ -85,7 +92,20 @@
         </div>
       </section>
     </div>
-    <div class="card-footer">
+    <div id="social-share">
+      <div>
+        <img style="float:right" src="{{ url_for('static', filename='images/cancel.png') }}" id="cls-share" alt="x" onclick="closeShare()">
+      </div>
+      <div id="share-btns">
+        <a class="facebook" target="blank"><i class="fab fa-facebook"></i></a>
+        <a class="twitter" target="blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a class="linkedin" target="blank"><i class="fab fa-linkedin"></i></a>
+        <a class="reddit" target="blank"><i class="fab fa-reddit"></i></a>
+        <a class="whatsapp" target="blank"><i class="fab fa-whatsapp"></i></a>
+        <a class="telegram" target="blank"><i class="fab fa-telegram"></i></a>  
+      </div>
+    </div>
+    <div id="foot" class="card-footer">
       <h5><img src="{{ url_for('static', filename='images/copyright-dark.png') }}" alt="copyright"><a href="https://github.com/DruSadeMumba/git-link" id="github-link">2024 Git-Link</a></h5>
     </div>
     <script src="{{ url_for('static', filename='scripts/jquery-3.6.0.js') }}"></script>
