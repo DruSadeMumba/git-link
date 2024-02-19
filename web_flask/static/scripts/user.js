@@ -17,6 +17,45 @@ document.getElementById("search-input").addEventListener("keypress", (e) => {
   }
 });
 
+const addRepo = (button) => {
+  if (auth.currentUser) {
+    console.log(auth.currentUser.username)
+    console.log(auth.currentUser.uid)
+    const userId = auth.currentUser.uid;
+    const repoRef = database.ref('users/' + userId + '/saved_repos');
+    const repo = {
+      name: button.getAttribute('data-name'),
+      description: button.getAttribute('data-description'),
+      forks_count: button.getAttribute('data-forks-count'),
+      stargazers_count: button.getAttribute('data-stargazers-count'),
+      html_url: button.getAttribute('data-html-url')
+    };
+    repoRef.child(repo.name).set(repo)
+      .then(() => {
+        alert("Repo saved")
+      })
+      .catch((error) => {
+        console.error('Error saving repo:', error)
+        alert('Failed to save repo. Try again later')
+      });
+  } else  {
+    alert('Please log in to save repository.');
+  }
+}
+
+const fireLogin = () => {
+  if (auth.currentUser) {
+    alert('Already logged in');
+    setTimeout(() => {
+      window.location.href = profileUrl;
+    }, 2000);
+  } else {
+    setTimeout(() => {
+      window.location.href = loginUrl;
+    }, 2000);
+  }
+}
+
 const shareOptions = () => {
   closeNav();
   document.getElementById("social-share").style.width = "400px";
@@ -38,7 +77,6 @@ const linkedIn = document.querySelector('.linkedin');
 const reddit = document.querySelector('.reddit');
 const whatsapp = document.querySelector('.whatsapp');
 const telegram = document.querySelector('.telegram');
-
 
 
 fb.href = `https://www.facebook.com/share.php?u=${links}`;
