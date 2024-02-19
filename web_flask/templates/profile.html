@@ -26,11 +26,11 @@
           <div class="scroll">
             {% for repo in repo_info %}
             <div class="card">
-              <h5 id="repo-name">Repository name</h5>
-              <p id="description">the description</p>
+              <h5 id="repo-name"> {{ repo.name }} </h5>
+              <p id="description"> {{ repo.description }} </p>
               <p id="more-info">
-                <span id="share"> <img src="{{ url_for('static', filename='images/share.png') }}" alt="share"></span>
-                <span id="link"><img src="{{ url_for('static', filename='images/link.png') }}" alt="link"></span>
+                <span id="share" onclick="share('{{ repo.html_url }}')"> <img src="{{ url_for('static', filename='images/share.png') }}" alt="share"></span>
+                <span id="link" onclick="view('{{ repo.html_url }}')"><img src="{{ url_for('static', filename='images/link.png') }}" alt="link"></span>
               </p>
             </div>
             {% endfor %}

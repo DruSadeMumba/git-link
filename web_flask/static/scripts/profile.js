@@ -4,11 +4,36 @@ document.addEventListener("DOMContentLoaded", () => {
     if (user) {
       const userId = user.uid;
       const userRef = database.ref('users/' + userId);
+      const repoRef = database.ref('users/' + userId + '/saved_repos');
 
       userRef.on('value', (snapshot) => {
         const userData = snapshot.val();
         document.getElementById('username').innerText = userData.username;
         document.getElementById('email').innerText = userData.email;
+      });
+      repoRef.on('value', (snapshot) => {
+        const repoData = snapshot.val();
+        const savedContainer = document.querySelector('.scroll');
+
+        savedContainer.innerHTML = '';
+        for (const repoKey in repoData) {
+          const repo = repoData[repoKey];
+          const repoCard = document.createElement('div');
+          repoCard.classList.add('card');
+          repoCard.innerHTML =
+            `<h5 id="repo-name">${repo.name}</h5>
+            <p id="description">${repo.description}</p>
+            <p id="more-info">
+              <span id="share" onclick="share('${repo.html_url}')">
+                <img src="{{ url_for('static', filename='images/share.png') }}" alt="share">
+              </span>
+              <span id="link" onclick="view('${repo.html_url}')">
+                <img src="{{ url_for('static', filename='images/link.png') }}" alt="link">
+              </span>
+            </p>
+          `;
+          savedContainer.appendChild(repoCard);
+        }
       });
     } else {
       console.log('No user signed in.');
