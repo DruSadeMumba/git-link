@@ -6,4 +6,5 @@ from web_flask import app_views
 
 @app_views.route("/signup", strict_slashes=False)
 def signup():
+    """Firebase signup"""
     return render_template("sign-up.html")

@@ -8,6 +8,7 @@ from web_flask import app_views
 @app_views.route("/profile/", strict_slashes=False)
 @app_views.route("/profile/<uid>", strict_slashes=False)
 def profile(uid=""):
+    """Firebase profile page"""
     uid_ref = db.reference('users/' + uid)
     uid_data = uid_ref.get()
     if uid_data:
@@ -18,9 +19,11 @@ def profile(uid=""):
 
 @app_views.route("/back", strict_slashes=False)
 def back():
+    """Return to search"""
     return redirect(url_for('app_views.search'))
 
 
 @app_views.route("/logout")
 def logout():
+    """Logout firebase user"""
     return redirect(url_for('app_views.search'))

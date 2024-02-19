@@ -16,6 +16,7 @@ headers = {'Authorization': f'token {token}'}
 
 @app_views.route("/search/github", methods=['GET'])
 def search():
+    """Search GitHub user (default: github)"""
     username = 'github'
     user_info = get_github_user_info(username)
     repo_info = get_user_repos(username)
@@ -24,11 +25,13 @@ def search():
 
 @app_views.route("/404", methods=['GET'])
 def not_found():
+    """404 page"""
     return render_template('404.html')
 
 
 @app_views.route("/search", methods=['POST'])
 def fetch_user():
+    """Fetch GitHub user"""
     if request.method == 'POST':
         username = request.form.get('username')
         user_info = get_github_user_info(username)
@@ -40,6 +43,7 @@ def fetch_user():
 
 @app_views.route("/search/<username>", methods=['GET'])
 def return_user(username):
+    """Return GitHub user"""
     user_info = get_github_user_info(username)
     if user_info:
         repo_info = get_user_repos(username)
@@ -52,6 +56,7 @@ def return_user(username):
 
 
 def get_github_user_info(username):
+    """Retrieve GitHub user info"""
     response = requests.get(f'https://api.github.com/users/{username}', headers=headers)
     if response.status_code != 200:
         return None
@@ -71,6 +76,7 @@ def get_github_user_info(username):
 
 
 def get_user_repos(username):
+    """Retrieve GitHub user repos"""
     url = f'https://api.github.com/users/{username}/repos'
     repo_info = []
     while url:
@@ -94,6 +100,7 @@ def get_user_repos(username):
 
 
 def handle_rate_limit(response):
+    """Handle GitHub API rate limit"""
     if int(response.headers.get('X-RateLimit-Remaining', 0)) <= 0:
         reset_time = int(response.headers.get('X-RateLimit-Reset', 0))
         sleep_time = reset_time - time.time()
