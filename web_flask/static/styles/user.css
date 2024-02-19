@@ -194,12 +194,12 @@ body   {
     right: 20px;
   }
   
-  #share-repo {
+  #save-repo {
     width: 100%;
     text-align: end;
   }
   
-  #share-repo img {
+  #save-repo img {
     width: 20px;
     margin-right: 5px;
   }
@@ -347,12 +347,12 @@ body   {
     right: 50px;
   }
   
-  #share-repo  {
+  #save-repo  {
     width: 100%;
     text-align: end;
   }
   
-  #share-repo img {
+  #save-repo img {
     width: 30px;
     margin-right: 5px;
   }
@@ -497,12 +497,12 @@ body   {
     right: 50px;
   }
   
-  #share-repo  {
+  #save-repo  {
     width: 100%;
     text-align: end;
   }
   
-  #share-repo img {
+  #save-repo img {
     width: 30px;
     margin-right: 5px;
   }
@@ -636,14 +636,14 @@ button a  {
   color: var(--primary-text-color);
 }
 
-#share-repo img:hover{
+#save-repo img:hover{
   cursor: not-allowed;
 }
 
-#share-repo button  {
-  width: 20%;
+#save-repo button  {
+  width: 10%;
   padding: 5px;
-  margin: 0;
+  margin: 5px;
   cursor: not-allowed;
 }
 
