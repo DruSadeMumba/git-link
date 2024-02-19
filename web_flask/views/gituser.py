@@ -89,7 +89,8 @@ def get_user_repos(username):
                 'name': repo['name'],
                 'description': repo['description'],
                 'forks_count': repo['forks_count'],
-                'stargazers_count': repo['stargazers_count']
+                'stargazers_count': repo['stargazers_count'],
+                'html_url': repo['html_url']
             })
         if 'next' in response.links:
             url = response.links['next']['url']
