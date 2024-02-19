@@ -19,8 +19,6 @@ document.getElementById("search-input").addEventListener("keypress", (e) => {
 
 const addRepo = (button) => {
   if (auth.currentUser) {
-    console.log(auth.currentUser.username)
-    console.log(auth.currentUser.uid)
     const userId = auth.currentUser.uid;
     const repoRef = database.ref('users/' + userId + '/saved_repos');
     const repo = {
