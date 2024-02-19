@@ -37,12 +37,13 @@
           </div>
         </div>
         <div class="col-md-3" id="logdiv">
-          <a href="{{ url_for('app_views.search') }}" id="logout">logout<span><img src="{{ url_for('static', filename='images/logout.png') }}" alt="logout"></span></a>
+          <h1 id="logout">logout<span><img src="{{ url_for('static', filename='images/logout.png') }}" alt="logout"></span></h1>
         </div>
       </div>
     </div>
     <script>
         var loginUrl = "{{ url_for('app_views.login') }}";
+        var searchUrl = "{{ url_for('app_views.search') }}";
     </script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>

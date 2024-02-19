@@ -1,9 +1,9 @@
 //firebase user profile
 document.addEventListener("DOMContentLoaded", () => {
-  firebase.auth().onAuthStateChanged((user) => {
+  auth.onAuthStateChanged((user) => {
     if (user) {
       const userId = user.uid;
-      const userRef = firebase.database().ref('users/' + userId);
+      const userRef = database.ref('users/' + userId);
 
       userRef.on('value', (snapshot) => {
         const userData = snapshot.val();
@@ -16,5 +16,15 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = loginUrl;
       }, 3000);
     }
+  });
+  document.getElementById('logout').addEventListener('click', () => {
+    auth.signOut().then(() => {
+      console.log('User signed out.');
+      setTimeout(() => {
+        window.location.href = searchUrl;
+      }, 2000);
+    }).catch((error) => {
+      console.log('Error signing out: ', error);
+    });
   });
 });
