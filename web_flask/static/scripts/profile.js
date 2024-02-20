@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `<h5 id="repo-name">${repo.name}</h5>
             <p id="description">${repo.description}</p>
             <p id="more-info">
-              <span id="share" onclick="share('${repo.html_url}')">
+              <span id="share" onclick="shareRepo('${repo.html_url}')">
                 <img src="../static/images/share.png" alt="share">
               </span>
               <span id="link">
@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 3000);
     }
   });
+
   document.getElementById('logout').addEventListener('click', () => {
     auth.signOut().then(() => {
       console.log('User signed out.');
@@ -55,3 +56,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+const shareRepo = (url) => {
+  const links = encodeURI(url);
+  const txt = encodeURIComponent('Hey, check out this repo');
+  const title = encodeURIComponent('');
+  const fb = document.querySelector('.facebook');
+  const twitter = document.querySelector('.twitter');
+  const linkedIn = document.querySelector('.linkedin');
+  const reddit = document.querySelector('.reddit');
+  const whatsapp = document.querySelector('.whatsapp');
+  const telegram = document.querySelector('.telegram');
+
+  fb.href = `https://www.facebook.com/share.php?u=${links}`;
+  twitter.href = `https://twitter.com/share?&url=${links}&text=${txt}&hashtags=github,alx`;
+  linkedIn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${links}`;
+  reddit.href = `https://www.reddit.com/submit?url=${links}&title=${title}`;
+  whatsapp.href = `https://api.whatsapp.com/send?text=${txt}: ${links}`;
+  telegram.href = `https://telegram.me/share/url?url=${links}&text=${txt}`;
+  
+  document.getElementById("social-share").style.width = "400px";
+  document.querySelector(".wrapper").style.opacity = "0.4";
+}
+
+const closeShare = () => {
+  document.getElementById("social-share").style.width = "0px";
+  document.querySelector(".wrapper").style.opacity = "1";
+};

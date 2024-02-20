@@ -90,3 +90,50 @@ div .scroll {
 #logdiv img {
   margin-left: 20px;
 }
+
+#social-share {
+  width: 0;
+  position: fixed;
+  z-index: 1;  
+  background: var(--accent-color);
+  overflow-x: hidden;
+  transition: 0.5s;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#cls-share:hover {
+  cursor: pointer;
+}
+
+#share-btns i {
+  font-size: 70px;
+  margin: 20px;
+  }
+
+  .facebook {
+  color: #3b5998;
+  }
+  .twitter {
+  color: #000000;
+  }
+  .linkedin {
+  color: #0077b5;
+  }
+  .reddit {
+  color: #cb2027;
+  }
+  .whatsapp {
+  color: #25D366;
+  }
+  .telegram {
+  color: #229ED9;
+  }
+  .facebook, .twitter, .linkedin, .reddit, .whatsapp, .telegram {
+  opacity: 0.8;
+  }
+  .facebook:hover, .twitter:hover, .linkedin:hover, .reddit:hover, .whatsapp:hover, .telegram:hover {
+  opacity: 1;
+  }
+
