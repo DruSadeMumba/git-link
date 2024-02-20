@@ -10,20 +10,20 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/profile.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/colors.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}">
+    <link rel="stylesheet" href="../static/styles/profile.css">
+    <link rel="stylesheet" href="../static/styles/colors.css">
+    <link rel="icon" href="../static/images/icon.png">
     <title>Git-Link</title>
   </head>
   <body>
     <div class="wrapper">
-      <div class="row">
-        <div class="col-md-3">
-          <a href="{{ url_for('app_views.back') }}"><img src="{{ url_for('static', filename='images/back-arrow.png') }}" alt="back" id="back"></a>
+      <section class="columns">
+        <div class="column" id="col-1">
+          <a href="{{ url_for('app_views.back') }}"><img src="../static/images/back-arrow.png" alt="back" id="back"></a>
           <h1 id="username"></h1>
           <h2 id="email"></h2>
         </div>
-        <div class="col-md-6">
+        <div class="column" id="col-2">
           <h1>SAVED REPOSITORIES</h1>
           <div class="scroll">
             {% for repo in repo_info %}
@@ -31,21 +31,23 @@
               <h5 id="repo-name"> {{ repo.name }} </h5>
               <p id="description"> {{ repo.description }} </p>
               <p id="more-info">
-                <span id="share" onclick="shareRepo('{{ repo.html_url }}')"> <img src="../static/images/share.png" alt="share"></span>
+                <span id="share" onclick="shareRepo('{{ repo.html_url }}')"><img src="../static/images/share.png" alt="share"></span>
                 <span id="link"><a href="{{ repo.html_url }}" target="_blank"><img src="../static/images/link.png" alt="link"></a></span>
               </p>
             </div>
             {% endfor %}
           </div>
         </div>
-        <div class="col-md-3" id="logdiv">
-          <h1 id="logout">logout<span><img src="{{ url_for('static', filename='images/logout.png') }}" alt="logout"></span></h1>
+        <div class="column" id="col-3">
+          <div class="card-footer">
+            <h1 id="logout">logout<span><img src="../static/images/logout.png" alt="logout"></span></h1>
+          </div>
         </div>
       </div>
     </div>
     <div id="social-share">
       <div>
-        <img style="float:right" src="{{ url_for('static', filename='images/close.png') }}" id="cls-share" alt="x" onclick="closeShare()">
+        <img style="float:right" src="../static/images/close.png" id="cls-share" alt="x" onclick="closeShare()">
       </div>
       <div id="share-btns">
         <a class="facebook" target="blank"><i class="fab fa-facebook"></i></a>
