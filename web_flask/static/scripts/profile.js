@@ -25,10 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
             <p id="description">${repo.description}</p>
             <p id="more-info">
               <span id="share" onclick="share('${repo.html_url}')">
-                <img src="{{ url_for('static', filename='images/share.png') }}" alt="share">
+                <img src="../static/images/share.png" alt="share">
               </span>
-              <span id="link" onclick="view('${repo.html_url}')">
-                <img src="{{ url_for('static', filename='images/link.png') }}" alt="link">
+              <span id="link">
+                <a href="${repo.html_url}" target="_blank">
+                  <img src="../static/images/link.png" alt="link">
+                </a>
               </span>
             </p>
           `;
