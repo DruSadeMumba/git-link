@@ -45,12 +45,22 @@ const fireLogin = () => {
   if (auth.currentUser) {
     alert('Already logged in');
     setTimeout(() => {
-      window.location.href = profileUrl;
+      const userId = auth.currentUser.uid;
+      window.location.href = profileUrl + userId;
     }, 2000);
   } else {
     setTimeout(() => {
       window.location.href = loginUrl;
     }, 2000);
+  }
+}
+
+const viewProfile = () => {
+  if (auth.currentUser) {
+    const userId = auth.currentUser.uid;
+    window.location.href = profileUrl + userId;
+  } else {
+    alert('Login to view profile page');
   }
 }
 
