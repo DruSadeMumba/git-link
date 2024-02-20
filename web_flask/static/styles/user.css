@@ -199,6 +199,10 @@ body   {
     text-align: end;
   }
   
+  #save-repo button {
+    width: 30px;
+  }
+  
   #save-repo img {
     width: 20px;
     margin-right: 5px;
@@ -351,6 +355,10 @@ body   {
     width: 100%;
     text-align: end;
   }
+
+  #save-repo button {
+    width: 40px;
+  }
   
   #save-repo img {
     width: 30px;
@@ -501,6 +509,10 @@ body   {
     width: 100%;
     text-align: end;
   }
+
+  #save-repo button {
+    width: 40px;
+  }
   
   #save-repo img {
     width: 30px;
@@ -636,12 +648,7 @@ button a  {
   color: var(--primary-text-color);
 }
 
-#save-repo img:hover{
-  cursor: not-allowed;
-}
-
 #save-repo button  {
-  width: 10%;
   padding: 5px;
   margin: 5px;
   cursor: pointer;
@@ -651,7 +658,7 @@ button a  {
   cursor: pointer;
 }
 
-#login  {
+#login, #profile {
   cursor: pointer;
 }
 
