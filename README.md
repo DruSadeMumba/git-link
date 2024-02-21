@@ -33,7 +33,7 @@
 
 # Installation
 1. Clone the repository
-git clone https://github.com/DruSadeMumba/git-link.git
+\n git clone https://github.com/DruSadeMumba/git-link.git
 2. Install dependencies
  pip3 install flask
 3. Set up Firebase
