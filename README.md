@@ -33,24 +33,15 @@
 
 # Installation
 1. Clone the repository
-   git clone https://github.com/DruSadeMumba/git-link.git
+* git clone https://github.com/DruSadeMumba/git-link.git
 3. Install dependencies
- pip3 install flask
+ * pip3 install flask
 4. Set up Firebase
-Usage
+* Usage
 5. Run the Flask application:
-python3 -m app
+* python3 -m app
 5.Access the application in your web browser
-http://localhost:5004
+* http://localhost:5004
 
-6. Contributing
- Contributions are welcome! If you'd like to contribute to Git-Link, please follow these steps:
 
-7. Fork the repository.
-Create a new branch (git checkout -b feature/new-feature).
-
-Make your changes.
-Commit your changes (git commit -am 'Add new feature').
-Push to the branch (git push origin feature/new-feature).
-Create a new Pull Request.
 
