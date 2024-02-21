@@ -40,13 +40,13 @@ pip3 install flask
 Usage
 4. Run the Flask application:
 python3 -m app
-Access the application in your web browser
-
+5.Access the application in your web browser
 http://localhost:5004
-Contributing
-Contributions are welcome! If you'd like to contribute to Git-Link, please follow these steps:
 
-Fork the repository.
+5. Contributing
+ Contributions are welcome! If you'd like to contribute to Git-Link, please follow these steps:
+
+6. Fork the repository.
 Create a new branch (git checkout -b feature/new-feature).
 
 Make your changes.
