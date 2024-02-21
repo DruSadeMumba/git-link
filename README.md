@@ -7,5 +7,11 @@
 * Installation
 * Usage
 * Contributing
-* License
-* Features
+
+
+# Features
+* GitHub Statistics: View detailed statistics about GitHub profiles, including bio, total repositories, followers, following, and location.
+* Repository Management: Easily manage repositories, including viewing repository details such as name, description, forks count, and stargazers count.
+* User Authentication: Securely register and log in to your account using Firebase authentication.
+* Networking: Connect with other GitHub users and share repositories to external sites for enhanced collaboration.
+* Responsive Design: Enjoy a seamless experience across devices.
