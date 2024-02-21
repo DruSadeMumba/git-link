@@ -1,5 +1,6 @@
 # Git-Link
 ## Git-Link is a web application designed to provide real-time github statistics for user accounts. 
+![user-activity](https://github.com/DruSadeMumba/git-link/assets/117368635/1e89b35e-ea72-4a2a-b567-ad1fd6908fc3)
 
 # Table of Contents
 * Features
