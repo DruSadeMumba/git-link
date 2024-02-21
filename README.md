@@ -29,3 +29,8 @@
 * Design Tool: Figma
 * Project Management: Trello
 * Web Server: Nginx
+
+
+#Installation
+1 Clone the repository
+git clone https://github.com/DruSadeMumba/git-link.git
