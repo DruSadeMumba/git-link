@@ -36,11 +36,9 @@
 * git clone https://github.com/DruSadeMumba/git-link.git
 3. Install dependencies
  * pip3 install flask
-4. Set up Firebase
-* Usage
-5. Run the Flask application:
+4. Run the Flask application:
 * python3 -m app
-5.Access the application in your web browser
+5. Access the application in your web browser
 * http://localhost:5004
 
 
