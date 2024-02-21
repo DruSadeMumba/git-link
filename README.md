@@ -15,3 +15,17 @@
 * User Authentication: Securely register and log in to your account using Firebase authentication.
 * Networking: Connect with other GitHub users and share repositories to external sites for enhanced collaboration.
 * Responsive Design: Enjoy a seamless experience across devices.
+
+
+# Technologies Used
+* Version Control: Git
+* Web Framework: Flask
+* Frontend: HTML, Jinja, CSS, JavaScript
+* Backend: Python
+* Database: Firebase Realtime Database
+* Authentication: Firebase Authentication
+* API Testing: Postman
+* Code Hosting: GitHub
+* Design Tool: Figma
+* Project Management: Trello
+* Web Server: Nginx
