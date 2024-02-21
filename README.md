@@ -1,7 +1,7 @@
-#Git-Link
-##Git-Link is a web application designed to provide real-time github statistics for user accounts. 
+# Git-Link
+## Git-Link is a web application designed to provide real-time github statistics for user accounts. 
 
-#Table of Contents
+# Table of Contents
 Features
 Technologies Used
 Installation
