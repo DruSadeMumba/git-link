@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Retrieve GitHub info"""
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, jsonify
 import os
 import requests
 import time
@@ -45,6 +45,12 @@ def fetch_user():
 def return_user(username):
     """Return GitHub user"""
     user_info = get_github_user_info(username)
+    if not username or len(username) > 160:
+        return jsonify({'error': 'Invalid username length > 160'}), 400
+    for char in username:
+        if not (char.isalnum() or char == '-'):
+            print("Invalid username chars")
+            return jsonify({'error': 'Invalid username chars'}), 400
     if user_info:
         repo_info = get_user_repos(username)
         if repo_info:

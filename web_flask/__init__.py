@@ -10,3 +10,4 @@ from web_flask.views.signup import *
 from web_flask.views.login import *
 from web_flask.views.profile import *
 from web_flask.views.gituser import *
+from web_flask.views.gitrepo import *
