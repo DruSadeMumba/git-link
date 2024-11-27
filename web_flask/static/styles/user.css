@@ -550,8 +550,6 @@ body   {
 
 .side-bar .card {
   background-color: var(--secondary-dark);
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
   height: 150px;
 }
 
