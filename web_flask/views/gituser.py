@@ -16,8 +16,8 @@ headers = {'Authorization': f'token {token}'}
 
 @app_views.route("/search/github", methods=['GET'])
 def search():
-    """Search GitHub user (default: github)"""
-    username = 'github'
+    """Search GitHub user (default: drusademumba)"""
+    username = 'drusademumba'
     user_info = get_github_user_info(username)
     repo_info = get_user_repos(username)
     return render_template('user.html', user_info=user_info, repo_info=repo_info)
