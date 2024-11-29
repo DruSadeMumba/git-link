@@ -14,11 +14,13 @@
     <title>Git-Link</title>
   </head>
   <body onload="redirectToUserPage()">
-    <div class="container-fluid">
+    <div class="container">
       <img src="../static/images/kitty.png" alt="logo">
+    </div>
+    <footer class="footer">
       <h1>Git-Link</h1>
       <h3>Providing real-time GitHub statistics for user accounts.</h3>
-    </div>
+    </footer>
     <script>
         const searchUrl = "{{ url_for('app_views.search') }}";
     </script>
