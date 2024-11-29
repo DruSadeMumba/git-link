@@ -17,18 +17,50 @@ body  {
   justify-content: center;
 }
 
+@media (max-width: 1000px) {
+  h1  {
+    text-align: center;
+    font-weight: 400;
+    font-size: calc(1.2rem + 3vw);
+  }
+  
+  h3   {
+    font-weight: 300;
+    font-size: calc(1rem + 1vw);
+  }
 
-@media only screen and (min-width: 500px) and (max-width: 800px) {
+  h4   {
+    margin-top: 5px;
+    font-weight: 300;
+    font-size: calc(1rem + 1vw);
+  }
+  
+  h5   {
+    font-weight: 200;
+    font-size: calc(.7rem + 1vw);
+  }
+
+  p   {
+    font-size: calc(.6rem + 1vw);
+    margin-top: 20px;
+    font-weight: lighter;
+    text-align: center;
+  }
+
+  .columns {
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    height: fit-content;
+  }
+
   .column   {
     width: 100%;
   }
   
   #column1  {
     text-align: center;
-    background-color: var(--primary-color);
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    height: 120px;
+    height: fit-content;
+    margin-bottom: 5px;
   }
 
   #column1 h1 {
@@ -44,11 +76,7 @@ body  {
     background-color: var(--primary-dark);
   }
 
-  
   #column2  {
-    background-color: var(--primary-color);
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
     padding-bottom: 30px;
     padding-left: 30px;
     padding-right: 30px;
@@ -75,6 +103,7 @@ body  {
     outline: none;
     border-bottom: 1px solid var(--primary-text-color);
     background: transparent;
+    font-size: 1.2rem;
   }
   
   .input-box input::placeholder {
@@ -84,29 +113,9 @@ body  {
   
   .input-box i  {
     position: absolute;
+    font-size: calc(1.5rem + 1vw);
   }
-  
-  h1  {
-    text-align: center;
-    font-weight: 400;
-    font-size: 36px;
-  }
-  
-  p   {
-    font-size: 18px;
-    margin-top: 20px;
-    font-weight: lighter;
-    text-align: center;
-  }
-  
-  h3   {
-    font-weight: 300;
-  }
-  
-  h5   {
-    font-weight: 200;
-  }
-    
+   
   #gmail  {
     height: 30px;
     width: auto;
@@ -125,6 +134,7 @@ body  {
     padding-top: 7px;
     padding-bottom: 7px;
     font-weight: 200;
+    font-size: 1rem;
   }
   
   span  {
@@ -137,12 +147,6 @@ body  {
     text-decoration: none;
   }
   
-  h4   {
-    margin-top: 5px;
-    font-weight: 300;
-    font-size: 20px;
-  }
-  
   #gitlogo  {
     margin-left: 25px;
     width: 40px;
@@ -152,7 +156,35 @@ body  {
   
 }
 
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: 1001px) {
+  h1  {
+    text-align: center;
+    font-weight: 400;
+    font-size: 36px;
+    text-align: center;
+  }
+
+  h3   {
+    font-weight: 400;
+  }
+  
+  h4   {
+    margin-top: 5px;
+    font-weight: 300;
+    font-size: 20px;
+  }
+
+  h5   {
+    font-weight: 300;
+  }
+
+  p   {
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: lighter;
+    text-align: center;
+  }
+  
   .column   {
     flex: 1;
     width: 50%;
@@ -205,24 +237,6 @@ body  {
     position: absolute;
   }
   
-  h1, p  {
-    text-align: center;
-  }
-  
-  p   {
-    font-size: 18px;
-    margin-top: 20px;
-    font-weight: lighter;
-  }
-  
-  h3   {
-    font-weight: 400;
-  }
-  
-  h5   {
-    font-weight: 300;
-  }
-  
   #kitty   {
     padding: 50px; 
     max-width: 100%;
@@ -256,12 +270,6 @@ body  {
   
   a   {
     text-decoration: none;
-  }
-  
-  h4   {
-    margin-top: 5px;
-    font-weight: 300;
-    font-size: 20px;
   }
   
   #gitlogo  {
