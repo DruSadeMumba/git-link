@@ -75,9 +75,9 @@ body   {
 
   .more-user-info  {
     position: absolute;
-    width: 60%;
+    width: 50%;
     height: fit-content;
-    right: 30px;
+    right: 0;
     top: 0px;
   }
 
